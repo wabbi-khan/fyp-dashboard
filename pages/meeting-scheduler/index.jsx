@@ -13,7 +13,7 @@ const CustomersPage = () => {
   //     dispatch(toggleDrawerMenu(false));
   //   }, []);
   return (
-    <ContainerDefault title='Customers'>
+    <ContainerDefault title='Meeting Scheduler'>
       <HeaderDashboard title='Meeting Scheduler' description='Meeting List' />
       <div>
         <h1>Meeting Details</h1>
