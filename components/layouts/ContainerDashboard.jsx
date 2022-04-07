@@ -24,7 +24,7 @@ const ContainerDashboard = ({ children, title }) => {
           <div className='ps-sidebar'>
             <div className='ps-sidebar__top'>
               <WidgetUserWelcome />
-              <WidgetEarningSidebar />
+              {/* <WidgetEarningSidebar /> */}
             </div>
             <div className='ps-sidebar__content'>
               <div className='ps-sidebar__center'>

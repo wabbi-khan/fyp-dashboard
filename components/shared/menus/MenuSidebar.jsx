@@ -12,17 +12,17 @@ const MenuSidebar = () => {
     },
     {
       text: "Employees Management",
-      url: "/products",
+      url: "/employees-management",
       icon: "icon-database",
     },
     {
       text: "File Management",
-      url: "/orders",
+      url: "/file-management",
       icon: "icon-bag2",
     },
     {
       text: "Meeting Scheduler",
-      url: "/customers",
+      url: "/meeting-scheduler",
       icon: "icon-users2",
     },
     // {
