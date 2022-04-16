@@ -1,18 +1,17 @@
 import React from "react";
 import { Formik, Form } from "formik";
 import FormFields from "./FormFields";
-import * as Yup from "yup";
+// import * as Yup from "yup";
 const index = () => {
-  const validate = Yup.object({
-    fullName: Yup.string()
-      .max(15, "Must be 15 character or less")
-      .required("Required"),
-    email: Yup.string().email("Email is invalid").required("Required"),
-  });
+  // const validate = Yup.object({
+  //   fullName: Yup.string()
+  //     .max(15, "Must be 15 character or less")
+  //     .required("Required"),
+  //   email: Yup.string().email("Email is invalid").required("Required"),
+  // });
   return (
     <>
-      <Formik
-        initialValues={{
+      {/* initialValues={{
           fullName: "",
           email: "",
           mobileNo: "",
@@ -20,8 +19,8 @@ const index = () => {
           city: "",
           status: "",
           address: "",
-        }}
-      >
+        }} */}
+      <Formik>
         {(formik) => (
           <div>
             <h2 className='my-4 font-weight-bold-display-4'>
