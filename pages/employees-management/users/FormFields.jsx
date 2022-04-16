@@ -1,17 +1,19 @@
 import React from "react";
-import useField from "formik";
-const FormFields = ({ label, ...props }) => {
-  const [field, meta] = useField(props);
+// import { useField } from "formik";
+const FormFields = ({ label, placeholder, ...props }) => {
+  // const [field, meta] = useField(props);
   return (
     <>
       {/* <div className='row'>
         <div className='col-md-12'> */}
       <div className='mb-2'>
-        <label htmlFor={field.name}> {label} </label>
+        {/* htmlFor={field.name} */}
+        <label> {label} </label>
         <input
+          placeholder={placeholder}
           className='form-control shandow-none'
           autoComplete='off'
-          {...field}
+          // {...field}
           {...props}
         />
       </div>

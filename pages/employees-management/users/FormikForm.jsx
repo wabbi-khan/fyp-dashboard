@@ -30,31 +30,66 @@ const index = () => {
             <Form>
               <div className='row'>
                 <div className='col-6'>
-                  <FormFields label='Full Name' name='fullName' type='text' />
+                  <FormFields
+                    label='Full Name'
+                    placeholder='Wahab Khan '
+                    name='fullName'
+                    type='text'
+                  />
                 </div>
                 <div className='col-6'>
-                  <FormFields label='Email' name='email' type='email' />
+                  <FormFields
+                    label='Email'
+                    placeholder='wahab@gmail.com'
+                    name='email'
+                    type='email'
+                  />
                 </div>
               </div>
               <div className='row'>
                 <div className='col-6'>
-                  <FormFields label='Mobile no' name='monbileNo' type='tel' />
+                  <FormFields
+                    label='Mobile no'
+                    placeholder='123123'
+                    name='monbileNo'
+                    type='tel'
+                  />
                 </div>
                 <div className='col-6'>
-                  <FormFields label='CNIC no' name='cnicNo' type='tel' />
+                  <FormFields
+                    label='CNIC no'
+                    placeholder='234545'
+                    name='cnicNo'
+                    type='tel'
+                  />
                 </div>
               </div>
               <div className='row'>
                 <div className='col-6'>
-                  <FormFields label='City' name='city' type='text' />
+                  <FormFields
+                    label='City'
+                    placeholder='Hyderabad'
+                    name='city'
+                    type='text'
+                  />
                 </div>
                 <div className='col-6'>
-                  <FormFields label='Status' name='status' type='text' />
+                  <FormFields
+                    label='Status'
+                    placeholder='Hire/Not Hire'
+                    name='status'
+                    type='text'
+                  />
                 </div>
               </div>
               <div className='row'>
                 <div className='col-md-12'>
-                  <FormFields label='Address' name='address' type='text' />
+                  <FormFields
+                    label='Address'
+                    placeholder='house no 234'
+                    name='address'
+                    type='text'
+                  />
                   <button
                     type='submit'
                     className='btn btn-primary'
