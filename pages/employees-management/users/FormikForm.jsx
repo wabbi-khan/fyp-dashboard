@@ -1,17 +1,33 @@
 import React from "react";
 import { Formik, Form } from "formik";
 import FormFields from "./FormFields";
-// import * as Yup from "yup";
+import * as Yup from "yup";
 const index = () => {
-  // const validate = Yup.object({
-  //   fullName: Yup.string()
-  //     .max(15, "Must be 15 character or less")
-  //     .required("Required"),
-  //   email: Yup.string().email("Email is invalid").required("Required"),
-  // });
+  const validate = Yup.object({
+    fullName: Yup.string()
+      .max(15, "Must be 15 character or less")
+      .required("Name is required"),
+    email: Yup.string().email("Email is invalid").required("Emai is required"),
+    mobileNo: Yup.string()
+      .max(15, "Mobile no is invalid")
+      .required("Mobile no is required"),
+    cnicNo: Yup.string()
+      .max(20, "CNIC no is invalid")
+      .required("CNIC ni is required"),
+    city: Yup.string()
+      .max(20, "CNIC no is invalid")
+      .required("City is required"),
+    status: Yup.string()
+      .max(20, "CNIC no is invalid")
+      .required("Status is required"),
+    address: Yup.string()
+      .max(50, "CNIC no is invalid")
+      .required("Address is required"),
+  });
   return (
     <>
-      {/* initialValues={{
+      <Formik
+        initialValues={{
           fullName: "",
           email: "",
           mobileNo: "",
@@ -19,13 +35,16 @@ const index = () => {
           city: "",
           status: "",
           address: "",
-        }} */}
-      <Formik>
+        }}
+        validationSchema={validate}
+        onSubmit={(values) => {
+          console.log(values);
+        }}
+      >
         {(formik) => (
           <div>
             <h2 className='my-4 font-weight-bold-display-4'>
               Add New Employee
-              {console.log(formik.values)}
             </h2>
             <Form>
               <div className='row'>
@@ -51,7 +70,7 @@ const index = () => {
                   <FormFields
                     label='Mobile no'
                     placeholder='123123'
-                    name='monbileNo'
+                    name='mobileNo'
                     type='tel'
                   />
                 </div>

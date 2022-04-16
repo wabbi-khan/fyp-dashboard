@@ -3,8 +3,5 @@
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
   "/": "pages/index.js",
-  "/file-management": "pages/file-management.js",
-  "/employees-management": "pages/employees-management.js",
-  "/employees-management/users/AddUser": "pages/employees-management/users/AddUser.js",
-  "/next/dist/pages/_error": "pages/next/dist/pages/_error.js"
+  "/employees-management/users/AddUser": "pages/employees-management/users/AddUser.js"
 }

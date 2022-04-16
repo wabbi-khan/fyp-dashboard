@@ -1,7 +1,7 @@
 import React from "react";
-// import { useField } from "formik";
+import { ErrorMessage, useField } from "formik";
 const FormFields = ({ label, placeholder, ...props }) => {
-  // const [field, meta] = useField(props);
+  const [field, meta] = useField(props);
   return (
     <>
       {/* <div className='row'>
@@ -11,11 +11,16 @@ const FormFields = ({ label, placeholder, ...props }) => {
         <label> {label} </label>
         <input
           placeholder={placeholder}
-          className='form-control shandow-none'
+          className={`form-control shandow-none ${
+            meta.touched && meta.error && "is-invalid"
+          }`}
           autoComplete='off'
-          // {...field}
+          {...field}
           {...props}
         />
+        <div style={{ color: "red", fontSize: "12px" }}>
+          <ErrorMessage name={field.name} />
+        </div>
       </div>
       {/* </div>
       </div> */}
