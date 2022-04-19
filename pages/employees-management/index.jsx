@@ -42,7 +42,7 @@ const ProductPage = () => {
             <tr>
               <th scope='col'>#</th>
               <th scope='col'>Name</th>
-              {/* <th scope='col'>Mobile No</th> */}
+              <th scope='col'>Mobile No</th>
               <th scope='col'>CNIC</th>
               <th scope='col'>Email</th>
               <th scope='col'>Status</th>
@@ -54,14 +54,19 @@ const ProductPage = () => {
               <tr>
                 <th scope='row'> {index + 1} </th>
                 <td> {user.name} </td>
-                <td> {user.username} </td>
+                <td> {user.phone} </td>
+                <td> {user.cnicNo} </td>
                 <td> {user.email} </td>
-                <td> {user.name} </td>
+                <td> {user.status} </td>
                 <td>
                   <Link href='/'>
                     <button className='btn btn-primary mr-2'>View</button>
                   </Link>
-                  <Link href='/'>
+                  {/* <Link
+                    href='/employees-management/users/EditUser/[id]'
+                    as={`/employees-management/users/EditUser/${user?.id}`}
+                  > */}
+                  <Link href={`/employees-management/users/EditUser` + user.id}>
                     <button className='btn btn-outline-primary mr-2'>
                       Edit
                     </button>

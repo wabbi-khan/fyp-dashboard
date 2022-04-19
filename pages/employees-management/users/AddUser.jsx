@@ -43,7 +43,7 @@ const AddUser = () => {
   const onSubmit = async (e) => {
     e.preventDefault();
     await Axios.post("http://localhost:3001/users", user);
-    router.push("/");
+    router.push("/employees-management");
   };
   return (
     <>
@@ -52,6 +52,8 @@ const AddUser = () => {
           title='Employees Management'
           description='Employees Listing '
         />
+        <h3>Add a new Employee</h3>
+
         {/* <FormikForm /> */}
         <form onSubmit={(e) => onSubmit(e)}>
           <div class='form-row'>
@@ -64,6 +66,7 @@ const AddUser = () => {
                 value={name}
                 onChange={(e) => onInputChange(e)}
                 required
+                placeholder='Employee Full Name'
               />
             </div>
             <div class='form-group col-md-6'>
@@ -75,6 +78,7 @@ const AddUser = () => {
                 value={userName}
                 onChange={(e) => onInputChange(e)}
                 required
+                placeholder='Employee User Name'
               />
             </div>
           </div>
@@ -88,6 +92,7 @@ const AddUser = () => {
                 value={phone}
                 onChange={(e) => onInputChange(e)}
                 required
+                placeholder='Employee Mobile No'
               />
             </div>
             <div class='form-group col-md-6'>
@@ -99,6 +104,7 @@ const AddUser = () => {
                 value={cnicNo}
                 onChange={(e) => onInputChange(e)}
                 required
+                placeholder='Employee Cnic No'
               />
             </div>
           </div>
@@ -112,23 +118,31 @@ const AddUser = () => {
                 value={email}
                 onChange={(e) => onInputChange(e)}
                 required
+                placeholder='Employee Email address'
               />
             </div>
             <div class='form-group col-md-6'>
               <label>Country</label>
-              <input
+              {/* <input
                 type='text'
                 class='form-control'
                 name='country'
                 value={country}
                 onChange={(e) => onInputChange(e)}
                 required
-              />
-              {/* <select id='inputState' class='form-control'>
+                placeholder='Employee Country'
+              /> */}
+              <select
+                class='form-control'
+                onChange={(e) => onInputChange(e)}
+                required
+                name='country'
+                value={country}
+              >
                 <option>Pakistan</option>
                 <option>India</option>
                 <option>U.S.A</option>
-              </select> */}
+              </select>
             </div>
           </div>
           <div class='form-group'>
@@ -146,7 +160,7 @@ const AddUser = () => {
           </div>
 
           <div class='form-row'>
-            <div class='form-group col-md-6'>
+            <div class='form-group col-md-5'>
               <label for='inputCity'>City</label>
               <input
                 type='text'
@@ -156,11 +170,12 @@ const AddUser = () => {
                 value={city}
                 onChange={(e) => onInputChange(e)}
                 required
+                placeholder='Employee City'
               />
             </div>
-            <div class='form-group col-md-4'>
+            <div class='form-group col-md-3'>
               <label for='inputState'>Province</label>
-              <input
+              {/* <input
                 type='text'
                 class='form-control'
                 placeholder='Sindh'
@@ -168,9 +183,21 @@ const AddUser = () => {
                 value={province}
                 onChange={(e) => onInputChange(e)}
                 required
-              />
+              /> */}
+              <select
+                class='form-control'
+                onChange={(e) => onInputChange(e)}
+                required
+                name='province'
+                value={province}
+              >
+                <option>Sindh</option>
+                <option>Punjab</option>
+                <option>Balochistan</option>
+                <option>Khyber Pakhtunkhwa</option>
+              </select>
             </div>
-            <div class='form-group col-md-2'>
+            <div class='form-group col-md-4'>
               <label for='inputZip'>Zip</label>
               <input
                 type='tel'
@@ -180,6 +207,7 @@ const AddUser = () => {
                 value={zip}
                 onChange={(e) => onInputChange(e)}
                 required
+                placeholder='Employee Zip code'
               />
             </div>
           </div>
@@ -195,6 +223,7 @@ const AddUser = () => {
                 value={depart}
                 onChange={(e) => onInputChange(e)}
                 required
+                placeholder='Employee Department'
               />
             </div>
             <div class='form-group col-md-4'>
@@ -202,11 +231,11 @@ const AddUser = () => {
               <input
                 type='text'
                 class='form-control'
-                placeholder='Sindh'
                 name='status'
                 value={status}
                 onChange={(e) => onInputChange(e)}
                 required
+                placeholder='Hire / Not Hire'
               />
             </div>
             <div class='form-group col-md-4'>
@@ -219,12 +248,17 @@ const AddUser = () => {
                 value={salary}
                 onChange={(e) => onInputChange(e)}
                 required
+                placeholder='Employee Salary'
               />
             </div>
           </div>
 
-          <button type='submit' class='btn btn-primary'>
-            Sign in
+          <button
+            type='submit'
+            class='btn btn-primary'
+            style={{ padding: "5px 20px", fontSize: "15px" }}
+          >
+            SUBMIT
           </button>
         </form>
       </ContainerDefault>
