@@ -1,14 +1,11 @@
 import React, { useState, useEffect } from "react";
 import ContainerDefault from "~/components/layouts/ContainerDefault";
 import HeaderDashboard from "~/components/shared/headers/HeaderDashboard";
-// import FormikForm from "./FormikForm";
 import { useRouter } from "next/router";
-// import { useParams } from "react-router-dom";
 import Axios from "axios";
 const EditUser = () => {
   const router = useRouter();
-  const { id } = useRouter([]);
-
+  const { id } = router.query;
   const [user, setUser] = useState({
     name: "",
     userName: "",
@@ -43,26 +40,18 @@ const EditUser = () => {
     console.log(e.target.value);
     setUser({ ...user, [e.target.name]: e.target.value });
   };
-  // useEffect(() => {
-  //   LoadUser();
-  // }, []);
+
   const onSubmit = async (e) => {
     e.preventDefault();
-    await Axios.post("http://localhost:3001/users", user);
+    await Axios.put(`http://localhost:3001/users/${id}`, user);
     router.push("/employees-management");
   };
-
-  // const LoadUser = async () => {
-  //   const result = await Axios.get(`http://localhost:3001/users/` + id);
-  //   console.log(result);
-  // };
 
   useEffect(() => {
     const LoadUser = async () => {
       try {
         const data = await Axios.get(`http://localhost:3001/users/` + id);
-        console.log(data);
-        // setData(data);
+        setUser(data.data);
       } catch (error) {
         console.log(error);
       }
@@ -76,7 +65,7 @@ const EditUser = () => {
           title='Employees Management'
           description='Employees Listing '
         />
-        <h3>Edit a Employee</h3>
+        <h3>Editing {user.name} Profile</h3>
         {/* <FormikForm /> */}
         <form onSubmit={(e) => onSubmit(e)}>
           <div class='form-row'>
@@ -251,7 +240,7 @@ const EditUser = () => {
             </div>
             <div class='form-group col-md-4'>
               <label for='inputState'>Status</label>
-              <input
+              {/* <input
                 type='text'
                 class='form-control'
                 name='status'
@@ -259,7 +248,18 @@ const EditUser = () => {
                 onChange={(e) => onInputChange(e)}
                 required
                 placeholder='Hire / Not Hire'
-              />
+              /> */}
+              <select
+                class='form-control'
+                onChange={(e) => onInputChange(e)}
+                required
+                name='status'
+                value={status}
+              >
+                <option>Hire</option>
+                <option>Not Hire</option>
+                <option>Pending</option>
+              </select>
             </div>
             <div class='form-group col-md-4'>
               <label for='inputZip'>Salary</label>

@@ -37,7 +37,7 @@ const AddUser = () => {
     salary,
   } = user;
   const onInputChange = (e) => {
-    console.log(e.target.value);
+    // console.log(e.target.value);
     setUser({ ...user, [e.target.name]: e.target.value });
   };
   const onSubmit = async (e) => {
@@ -54,7 +54,6 @@ const AddUser = () => {
         />
         <h3>Add a new Employee</h3>
 
-        {/* <FormikForm /> */}
         <form onSubmit={(e) => onSubmit(e)}>
           <div class='form-row'>
             <div class='form-group col-md-6'>
@@ -228,15 +227,18 @@ const AddUser = () => {
             </div>
             <div class='form-group col-md-4'>
               <label for='inputState'>Status</label>
-              <input
-                type='text'
+
+              <select
                 class='form-control'
+                onChange={(e) => onInputChange(e)}
                 name='status'
                 value={status}
-                onChange={(e) => onInputChange(e)}
                 required
-                placeholder='Hire / Not Hire'
-              />
+              >
+                <option>Hire</option>
+                <option>Not Hire</option>
+                <option>Pending</option>
+              </select>
             </div>
             <div class='form-group col-md-4'>
               <label for='inputZip'>Salary</label>

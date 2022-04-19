@@ -3,6 +3,6 @@
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
   "/employees-management": "pages/employees-management.js",
-  "/employees-management/users/[id]": "pages/employees-management/users/[id].js",
-  "/404": "pages/404.js"
+  "/employees-management/users/AddUser": "pages/employees-management/users/AddUser.js",
+  "/employees-management/users/[id]": "pages/employees-management/users/[id].js"
 }

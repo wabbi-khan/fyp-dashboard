@@ -9,7 +9,7 @@ import Axios from "axios";
 // import { connect, useDispatch } from "react-redux";
 // import { toggleDrawerMenu } from "~/store/app/action";
 // const { Option } = Select;
-const ProductPage = () => {
+const DisplayUsers = () => {
   const [users, setUser] = useState([]);
 
   useEffect(() => {
@@ -20,10 +20,12 @@ const ProductPage = () => {
     const result = await Axios.get("http://localhost:3001/users");
     setUser(result.data);
   };
-  // const dispatch = useDispatch();
-  // useEffect(() => {
-  //   dispatch(toggleDrawerMenu(false));
-  // }, []);
+
+  const deleteUser = async (id) => {
+    await Axios.delete(`http://localhost:3001/users/${id}`);
+    loadUsers();
+  };
+
   return (
     <ContainerDefault title='Employees Manage'>
       <HeaderDashboard
@@ -59,110 +61,35 @@ const ProductPage = () => {
                 <td> {user.email} </td>
                 <td> {user.status} </td>
                 <td>
-                  <Link href='/'>
+                  <Link
+                    href={`/employees-management/users/viewUser/` + user.id}
+                  >
                     <button className='btn btn-primary mr-2'>View</button>
                   </Link>
                   {/* <Link
                     href='/employees-management/users/EditUser/[id]'
                     as={`/employees-management/users/EditUser/${user?.id}`}
                   > */}
-                  <Link href={`/employees-management/users/EditUser` + user.id}>
+                  <Link href={`/employees-management/users/` + user.id}>
                     <button className='btn btn-outline-primary mr-2'>
                       Edit
                     </button>
                   </Link>
-                  <Link href='/'>
-                    <button className='btn btn-danger mr-2'>Delete</button>
-                  </Link>
+                  {/* <Link href='#'> */}
+                  <button
+                    className='btn btn-danger mr-2'
+                    onClick={() => deleteUser(user.id)}
+                  >
+                    Delete
+                  </button>
+                  {/* </Link> */}
                 </td>
-                {/* <td> {user.username} </td> */}
-                {/* <td> {user.email} </td> */}
               </tr>
             ))}
           </tbody>
         </table>
       </div>
-      {/* <section className='ps-items-listing'>
-        <div className='ps-section__actions'>
-          <Link href='/products/create-product'>
-            <a className='ps-btn success'>
-              <i className='icon icon-plus mr-2' />
-              New Product
-            </a>
-          </Link>
-        </div>
-        <div className='ps-section__header'>
-          <div className='ps-section__filter'>
-            <form className='ps-form--filter' action='index.html' method='get'>
-              <div className='ps-form__left'>
-                <div className='form-group'>
-                  <Select
-                    placeholder='Select Category'
-                    className='ps-ant-dropdown'
-                    listItemHeight={20}
-                  >
-                    <Option value='clothing-and-apparel'>
-                      Clothing & Apparel
-                    </Option>
-                    <Option value='garden-and-kitchen'>Garden & Kitchen</Option>
-                  </Select>
-                </div>
-                <div className='form-group'>
-                  <Select
-                    placeholder='Select Category'
-                    className='ps-ant-dropdown'
-                    listItemHeight={20}
-                  >
-                    <Option value='simple-product'>Simple Product</Option>
-                    <Option value='groupped-product'>Groupped product</Option>
-                  </Select>
-                </div>
-                <div className='form-group'>
-                  <Select
-                    placeholder='Status'
-                    className='ps-ant-dropdown'
-                    listItemHeight={20}
-                  >
-                    <Option value='active'>Active</Option>
-                    <Option value='in-active'>InActive</Option>
-                  </Select>
-                </div>
-              </div>
-              <div className='ps-form__right'>
-                <button className='ps-btn ps-btn--gray'>
-                  <i className='icon icon-funnel mr-2'></i>
-                  Filter
-                </button>
-              </div>
-            </form>
-          </div>
-          <div className='ps-section__search'>
-            <form
-              className='ps-form--search-simple'
-              action='index.html'
-              method='get'
-            >
-              <input
-                className='form-control'
-                type='text'
-                placeholder='Search product'
-              />
-              <button>
-                <i className='icon icon-magnifier'></i>
-              </button>
-            </form>
-          </div>
-        </div>
-        <div className='ps-section__content'>
-          <TableProjectItems />
-        </div>
-        <div className='ps-section__footer'>
-          <p>Show 10 in 30 items.</p>
-          <Pagination />
-        </div>
-      </section> */}
     </ContainerDefault>
   );
 };
-export default ProductPage;
-// export default connect((state) => state.app)(ProductPage);
+export default DisplayUsers;
