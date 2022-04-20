@@ -3,6 +3,7 @@ import ContainerDefault from "~/components/layouts/ContainerDefault";
 import HeaderDashboard from "~/components/shared/headers/HeaderDashboard";
 import { useRouter } from "next/router";
 import Axios from "axios";
+import style from "../style.module.css";
 const EditUser = () => {
   const router = useRouter();
   const { id } = router.query;
@@ -151,6 +152,7 @@ const EditUser = () => {
                 name='country'
                 value={country}
               >
+                <option>Choose...</option>
                 <option>Pakistan</option>
                 <option>India</option>
                 <option>U.S.A</option>
@@ -203,6 +205,7 @@ const EditUser = () => {
                 name='province'
                 value={province}
               >
+                <option>Choose...</option>
                 <option>Sindh</option>
                 <option>Punjab</option>
                 <option>Balochistan</option>
@@ -256,6 +259,7 @@ const EditUser = () => {
                 name='status'
                 value={status}
               >
+                <option>Choose...</option>
                 <option>Hire</option>
                 <option>Not Hire</option>
                 <option>Pending</option>
@@ -276,12 +280,8 @@ const EditUser = () => {
             </div>
           </div>
 
-          <button
-            type='submit'
-            class='btn btn-primary'
-            style={{ padding: "5px 20px", fontSize: "15px" }}
-          >
-            SUBMIT
+          <button type='submit' className={style.btn}>
+            Edit Employee
           </button>
         </form>
       </ContainerDefault>

@@ -4,6 +4,7 @@ import HeaderDashboard from "~/components/shared/headers/HeaderDashboard";
 // import FormikForm from "./FormikForm";
 import { useRouter } from "next/router";
 import Axios from "axios";
+import style from "../style.module.css";
 const AddUser = () => {
   const router = useRouter();
   const [user, setUser] = useState({
@@ -138,6 +139,7 @@ const AddUser = () => {
                 name='country'
                 value={country}
               >
+                <option>Choose...</option>
                 <option>Pakistan</option>
                 <option>India</option>
                 <option>U.S.A</option>
@@ -190,6 +192,7 @@ const AddUser = () => {
                 name='province'
                 value={province}
               >
+                <option>Choose...</option>
                 <option>Sindh</option>
                 <option>Punjab</option>
                 <option>Balochistan</option>
@@ -235,6 +238,7 @@ const AddUser = () => {
                 value={status}
                 required
               >
+                <option>Choose...</option>
                 <option>Hire</option>
                 <option>Not Hire</option>
                 <option>Pending</option>
@@ -255,12 +259,8 @@ const AddUser = () => {
             </div>
           </div>
 
-          <button
-            type='submit'
-            class='btn btn-primary'
-            style={{ padding: "5px 20px", fontSize: "15px" }}
-          >
-            SUBMIT
+          <button type='submit' class={style.btn}>
+            Add New Employee
           </button>
         </form>
       </ContainerDefault>

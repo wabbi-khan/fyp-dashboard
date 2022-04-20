@@ -38,6 +38,11 @@
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/employees-management/users/[id].js"
+    ],
+    "/employees-management/users/viewUser/[id]": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/employees-management/users/viewUser/[id].js"
     ]
   },
   "ampFirstPages": []

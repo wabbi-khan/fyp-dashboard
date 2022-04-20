@@ -1,20 +1,36 @@
 {
   "users": [
     {
-      "name": "khan",
-      "userName": "khan1234",
-      "email": "khan@mgil.aocm",
-      "phone": "1231232",
-      "cnicNo": "345345",
-      "city": "hyd",
-      "address": "hiajsd34",
-      "country": "India",
+      "name": "Saif",
+      "userName": "saif123",
+      "email": "saif@gmail.com",
+      "phone": "03121",
+      "cnicNo": "123123",
+      "city": "hdy",
+      "address": "house 123",
+      "country": "Pakistan",
+      "province": "Sindh",
+      "zip": "71000",
+      "depart": "it",
+      "status": "Hire",
+      "salary": "54320",
+      "id": 1
+    },
+    {
+      "name": "Wahab Khan",
+      "userName": "wahab123",
+      "email": "wahab@gmail.com",
+      "phone": "45646",
+      "cnicNo": "7654",
+      "city": "lahore",
+      "address": "house 789",
+      "country": "U.S.A",
       "province": "Balochistan",
       "zip": "4300",
       "depart": "bba",
-      "status": "Not Hire",
-      "salary": "4000",
-      "id": 1
+      "status": "Pending",
+      "salary": "65433",
+      "id": 2
     }
   ]
 }

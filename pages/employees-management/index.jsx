@@ -9,8 +9,10 @@ import Axios from "axios";
 // import { connect, useDispatch } from "react-redux";
 // import { toggleDrawerMenu } from "~/store/app/action";
 // const { Option } = Select;
+import style from "./style.module.css";
 const DisplayUsers = () => {
   const [users, setUser] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     loadUsers();
@@ -34,11 +36,24 @@ const DisplayUsers = () => {
       />
       <div>
         <h1>Employees Details</h1>
-        <Link href='/employees-management/users/AddUser'>
-          <button className='btn btn-primary ' style={{ fontSize: "15px" }}>
-            Add Employee
-          </button>
-        </Link>
+        <div className='row'>
+          <div className='col-6'>
+            <Link href='/employees-management/users/AddUser'>
+              <button className={style.btn}>Add Employee</button>
+            </Link>
+          </div>
+          <div className='col-6'>
+            <input
+              className={style.input}
+              type='text'
+              placeholder='Search Employee...'
+              onChange={(event) => {
+                setSearchTerm(event.target.value);
+              }}
+            />
+          </div>
+        </div>
+
         <table className='table border shadow mt-4'>
           <thead className='thead-dark '>
             <tr>
@@ -52,40 +67,55 @@ const DisplayUsers = () => {
             </tr>
           </thead>
           <tbody>
-            {users.map((user, index) => (
-              <tr>
-                <th scope='row'> {index + 1} </th>
-                <td> {user.name} </td>
-                <td> {user.phone} </td>
-                <td> {user.cnicNo} </td>
-                <td> {user.email} </td>
-                <td> {user.status} </td>
-                <td>
-                  <Link
-                    href={`/employees-management/users/viewUser/` + user.id}
-                  >
-                    <button className='btn btn-primary mr-2'>View</button>
-                  </Link>
-                  {/* <Link
+            {users
+              .filter((user) => {
+                if (searchTerm == "") {
+                  return user;
+                } else if (
+                  user.cnicNo
+                    .toLowerCase()
+                    .includes(searchTerm.toLowerCase()) ||
+                  user.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                  user.phone.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                  user.email.toLowerCase().includes(searchTerm.toLowerCase())
+                ) {
+                  return user;
+                }
+              })
+              .map((user, index) => (
+                <tr>
+                  <th scope='row'> {index + 1} </th>
+                  <td> {user.name} </td>
+                  <td> {user.phone} </td>
+                  <td> {user.cnicNo} </td>
+                  <td> {user.email} </td>
+                  <td> {user.status} </td>
+                  <td>
+                    <Link
+                      href={`/employees-management/users/viewUser/` + user.id}
+                    >
+                      <button className='btn btn-primary mr-2'>View</button>
+                    </Link>
+                    {/* <Link
                     href='/employees-management/users/EditUser/[id]'
                     as={`/employees-management/users/EditUser/${user?.id}`}
                   > */}
-                  <Link href={`/employees-management/users/` + user.id}>
-                    <button className='btn btn-outline-primary mr-2'>
-                      Edit
+                    <Link href={`/employees-management/users/` + user.id}>
+                      <button className='btn btn-outline-primary mr-2'>
+                        Edit
+                      </button>
+                    </Link>
+                    {/* <Link href='#'> */}
+                    <button
+                      className='btn btn-danger mr-2'
+                      onClick={() => deleteUser(user.id)}
+                    >
+                      Delete
                     </button>
-                  </Link>
-                  {/* <Link href='#'> */}
-                  <button
-                    className='btn btn-danger mr-2'
-                    onClick={() => deleteUser(user.id)}
-                  >
-                    Delete
-                  </button>
-                  {/* </Link> */}
-                </td>
-              </tr>
-            ))}
+                    {/* </Link> */}
+                  </td>
+                </tr>
+              ))}
           </tbody>
         </table>
       </div>
