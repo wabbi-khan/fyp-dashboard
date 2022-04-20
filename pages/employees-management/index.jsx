@@ -38,11 +38,6 @@ const DisplayUsers = () => {
         <h1>Employees Details</h1>
         <div className='row'>
           <div className='col-6'>
-            <Link href='/employees-management/users/AddUser'>
-              <button className={style.btn}>Add Employee</button>
-            </Link>
-          </div>
-          <div className='col-6'>
             <input
               className={style.input}
               type='text'
@@ -51,6 +46,11 @@ const DisplayUsers = () => {
                 setSearchTerm(event.target.value);
               }}
             />
+          </div>
+          <div className='col-6'>
+            <Link href='/employees-management/users/AddUser'>
+              <button className={style.btn}>Add Employee</button>
+            </Link>
           </div>
         </div>
 
