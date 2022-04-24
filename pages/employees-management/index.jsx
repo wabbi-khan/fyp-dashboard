@@ -3,12 +3,6 @@ import ContainerDefault from "~/components/layouts/ContainerDefault";
 import Link from "next/link";
 import HeaderDashboard from "~/components/shared/headers/HeaderDashboard";
 import Axios from "axios";
-// import Pagination from "~/components/elements/basic/Pagination";
-// import TableProjectItems from "~/components/shared/tables/TableProjectItems";
-// import { Select } from "antd";
-// import { connect, useDispatch } from "react-redux";
-// import { toggleDrawerMenu } from "~/store/app/action";
-// const { Option } = Select;
 import style from "./style.module.css";
 const DisplayUsers = () => {
   const [users, setUser] = useState([]);

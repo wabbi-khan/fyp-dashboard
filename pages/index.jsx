@@ -4,15 +4,26 @@ import React, { useEffect } from "react";
 // import CardEarning from "~/components/shared/cards/CardEarning";
 // import CardStatics from "~/components/shared/cards/CardStatics";
 import ContainerDashboard from "~/components/layouts/ContainerDashboard";
+import { getDocs, collection } from "firebase/firestore";
 // import { useDispatch } from "react-redux";
 // import { toggleDrawerMenu } from "~/store/app/action";
 // import CardTopCountries from "~/components/shared/cards/CardTopCountries";
+import { database } from "~/firebaseConfig";
+const usersInstance = collection(database, "users");
 
 const Index = () => {
   // const dispatch = useDispatch();
-  // useEffect(() => {
-  //   dispatch(toggleDrawerMenu(false));
-  // }, []);
+  const getAllUsers = async () => {
+    getDocs(usersInstance).then((data) => {
+      // console.log(data);
+      data.docs.map((item) => {
+        console.log(item.data());
+      });
+    });
+  };
+  useEffect(() => {
+    getAllUsers();
+  }, []);
 
   return (
     <ContainerDashboard title='Dashboard'>

@@ -21,6 +21,8 @@ const AddUser = () => {
     depart: "",
     status: "",
     salary: "",
+    dob: "",
+    doh: "",
   });
   const {
     name,
@@ -36,6 +38,8 @@ const AddUser = () => {
     depart,
     status,
     salary,
+    dob,
+    doh,
   } = user;
   const onInputChange = (e) => {
     // console.log(e.target.value);
@@ -145,6 +149,30 @@ const AddUser = () => {
                 <option>U.S.A</option>
               </select>
             </div>
+          </div>{" "}
+          <div class='form-row'>
+            <div class='form-group col-md-6'>
+              <label>Date of birth</label>
+              <input
+                type='date'
+                class='form-control'
+                name='dob'
+                value={dob}
+                onChange={(e) => onInputChange(e)}
+                required
+              />
+            </div>
+            <div class='form-group col-md-6'>
+              <label>Date of hiring</label>
+              <input
+                type='date'
+                class='form-control'
+                name='doh'
+                value={doh}
+                onChange={(e) => onInputChange(e)}
+                required
+              />
+            </div>
           </div>
           <div class='form-group'>
             <label for='inputAddress'>Address</label>
@@ -159,7 +187,6 @@ const AddUser = () => {
               required
             />
           </div>
-
           <div class='form-row'>
             <div class='form-group col-md-5'>
               <label for='inputCity'>City</label>
@@ -213,7 +240,6 @@ const AddUser = () => {
               />
             </div>
           </div>
-
           <div class='form-row'>
             <div class='form-group col-md-4'>
               <label for='inputCity'>Department</label>
@@ -258,7 +284,6 @@ const AddUser = () => {
               />
             </div>
           </div>
-
           <button type='submit' class={style.btn}>
             Add New Employee
           </button>

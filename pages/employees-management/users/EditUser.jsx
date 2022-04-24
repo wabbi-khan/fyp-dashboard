@@ -21,6 +21,8 @@ const EditUser = () => {
     depart: "",
     status: "",
     salary: "",
+    dob: "",
+    doh: "",
   });
   const {
     name,
@@ -36,6 +38,8 @@ const EditUser = () => {
     depart,
     status,
     salary,
+    dob,
+    doh,
   } = user;
   const onInputChange = (e) => {
     console.log(e.target.value);
@@ -157,6 +161,30 @@ const EditUser = () => {
                 <option>India</option>
                 <option>U.S.A</option>
               </select>
+            </div>
+          </div>
+          <div class='form-row'>
+            <div class='form-group col-md-6'>
+              <label>Date of birth</label>
+              <input
+                type='date'
+                class='form-control'
+                name='dob'
+                value={dob}
+                onChange={(e) => onInputChange(e)}
+                required
+              />
+            </div>
+            <div class='form-group col-md-6'>
+              <label>Date of hiring</label>
+              <input
+                type='date'
+                class='form-control'
+                name='doh'
+                value={doh}
+                onChange={(e) => onInputChange(e)}
+                required
+              />
             </div>
           </div>
           <div class='form-group'>

@@ -11,11 +11,11 @@ const WidgetUserWelcome = () => {
           Hello,<a href='#'>Company Name</a>
         </p>
       </div>
-      <div className='ps-block__action'>
+      {/* <div className='ps-block__action'>
         <a href='#'>
           <i className='icon-exit'></i>
         </a>
-      </div>
+      </div> */}
     </div>
   );
 };
