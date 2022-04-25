@@ -3,8 +3,12 @@ import ContainerDefault from "~/components/layouts/ContainerDefault";
 import HeaderDashboard from "~/components/shared/headers/HeaderDashboard";
 // import FormikForm from "./FormikForm";
 import { useRouter } from "next/router";
-import Axios from "axios";
+// import Axios from "axios";
 import style from "../style.module.css";
+import { collection, addDoc, getDocs } from "firebase/firestore";
+import { database } from "~/firebaseConfig";
+const employeeInstance = collection(database, "employee");
+
 const AddUser = () => {
   const router = useRouter();
   const [user, setUser] = useState({
@@ -47,8 +51,10 @@ const AddUser = () => {
   };
   const onSubmit = async (e) => {
     e.preventDefault();
-    await Axios.post("http://localhost:3001/users", user);
-    router.push("/employees-management");
+    // await Axios.post("http://localhost:3001/users", user);
+    addDoc(employeeInstance, user).then(() => {
+      router.push("/employees-management");
+    });
   };
   return (
     <>

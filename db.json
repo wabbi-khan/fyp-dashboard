@@ -1,22 +1,6 @@
 {
   "users": [
     {
-      "name": "Saif",
-      "userName": "saif123",
-      "email": "saif@gmail.com",
-      "phone": "03121",
-      "cnicNo": "123123",
-      "city": "hdy",
-      "address": "house 123",
-      "country": "Pakistan",
-      "province": "Sindh",
-      "zip": "71000",
-      "depart": "it",
-      "status": "Hire",
-      "salary": "54320",
-      "id": 1
-    },
-    {
       "name": "Wahab Khan",
       "userName": "wahab123",
       "email": "wahab@gmail.com",
@@ -101,6 +85,24 @@
       "dob": "2002-06-06",
       "doh": "2022-04-25",
       "id": 6
+    },
+    {
+      "name": "Syed Saif Uddin",
+      "userName": "saif123",
+      "email": "saif@gmail.com",
+      "phone": "0311300123",
+      "cnicNo": "413044534521234",
+      "city": "hdy",
+      "address": "jhgfds",
+      "country": "Pakistan",
+      "province": "Punjab",
+      "zip": "6543",
+      "depart": "BBA",
+      "status": "Hire",
+      "salary": "50,000",
+      "dob": "1999-03-25",
+      "doh": "2022-04-28",
+      "id": 7
     }
   ]
 }

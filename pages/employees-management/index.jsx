@@ -4,6 +4,10 @@ import Link from "next/link";
 import HeaderDashboard from "~/components/shared/headers/HeaderDashboard";
 import Axios from "axios";
 import style from "./style.module.css";
+import { collection, addDoc, getDocs } from "firebase/firestore";
+import { database } from "~/firebaseConfig";
+const employeeInstance = collection(database, "employee");
+
 const DisplayUsers = () => {
   const [users, setUser] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
@@ -13,8 +17,18 @@ const DisplayUsers = () => {
   }, []);
 
   const loadUsers = async () => {
-    const result = await Axios.get("http://localhost:3001/users");
-    setUser(result.data);
+    // const result = await Axios.get("http://localhost:3001/users");
+    let employees = [];
+
+    getDocs(employeeInstance).then((data) => {
+      for (let i = 0; i < data.docs.length; i++) {
+        const item = data.docs[i];
+        employees.push(item.data());
+      }
+      setUser(employees);
+      // console.log(data);
+    });
+    console.log(employees);
   };
 
   const deleteUser = async (id) => {
@@ -43,7 +57,22 @@ const DisplayUsers = () => {
           </div>
           <div className='col-6'>
             <Link href='/employees-management/users/AddUser'>
-              <button className={style.btn}>Add Employee</button>
+              {/* <button className={style.btn}>Add Employee</button> */}
+              <button class={style.cssbuttons}>
+                <svg
+                  xmlns='http://www.w3.org/2000/svg'
+                  viewBox='0 0 24 24'
+                  width='24'
+                  height='24'
+                >
+                  <path fill='none' d='M0 0h24v24H0z'></path>
+                  <path
+                    fill='currentColor'
+                    d='M11 11V5h2v6h6v2h-6v6h-2v-6H5v-2z'
+                  ></path>
+                </svg>
+                <span>Add Employee</span>
+              </button>
             </Link>
           </div>
         </div>
