@@ -28,7 +28,9 @@ const DisplayUsers = () => {
       setUser(employees);
       // console.log(data);
     });
-    console.log(employees);
+    // setUser(result.data);
+
+    // console.log(result);
   };
 
   const deleteUser = async (id) => {

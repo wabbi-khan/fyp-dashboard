@@ -1,28 +1,11 @@
-.font {
-    font-size: 300px;
+.box {
+    background-color: wheat;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: black;
 }
 
-.font2 {
-    color: pink;
-}
-
-.input {
-    padding: 10px;
-    border-radius: 5px;
-    border: orange 1px solid;
-    width: 300px;
-}
-
-.btn {
-    padding: 10px;
-    border-radius: 5px;
-    border: none;
-    background-color: orange;
-    color: white;
-}
-
-.btn:hover {
-    border: orange 1px solid;
-    background-color: transparent;
-    color: orange;
+.header {
+    margin-bottom: 30px;
+    text-align: center;
 }

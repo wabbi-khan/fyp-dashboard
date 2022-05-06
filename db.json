@@ -1,39 +1,7 @@
 {
   "users": [
     {
-      "name": "Wahab Khan",
-      "userName": "wahab123",
-      "email": "wahab@gmail.com",
-      "phone": "45646",
-      "cnicNo": "7654",
-      "city": "lahore",
-      "address": "house 789",
-      "country": "U.S.A",
-      "province": "Balochistan",
-      "zip": "4300",
-      "depart": "bba",
-      "status": "Pending",
-      "salary": "65433",
-      "id": 2
-    },
-    {
-      "name": "Fahad Hussain",
-      "userName": "fahad234",
-      "email": "fahad@gmail.com",
-      "phone": "6789",
-      "cnicNo": "4102939",
-      "city": "lahore",
-      "address": "house 3542123",
-      "country": "Pakistan",
-      "province": "Punjab",
-      "zip": "543",
-      "depart": "Hacking",
-      "status": "Not Hire",
-      "salary": "100,000",
-      "id": 3
-    },
-    {
-      "name": "Prain",
+      "name": "Praim",
       "userName": "khan",
       "email": "asd@gmail.com",
       "phone": "123",
@@ -51,7 +19,7 @@
       "id": 4
     },
     {
-      "name": "Bilal",
+      "name": "usman",
       "userName": "bilal123",
       "email": "bilal@gmail.com",
       "phone": "123123",
@@ -103,6 +71,24 @@
       "dob": "1999-03-25",
       "doh": "2022-04-28",
       "id": 7
+    },
+    {
+      "name": "fahad hussain",
+      "userName": "huaasi234",
+      "email": "hussain@gmail.com",
+      "phone": "5432",
+      "cnicNo": "1234",
+      "city": "hyd",
+      "address": "gfd543",
+      "country": "Pakistan",
+      "province": "Sindh",
+      "zip": "t6543",
+      "depart": "it",
+      "status": "Hire",
+      "salary": "65432",
+      "dob": "2022-04-08",
+      "doh": "2022-04-07",
+      "id": 8
     }
   ]
 }

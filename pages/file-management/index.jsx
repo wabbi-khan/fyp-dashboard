@@ -2,26 +2,12 @@ import React, { useEffect, useState } from "react";
 import ContainerDefault from "~/components/layouts/ContainerDefault";
 import Link from "next/link";
 import HeaderDashboard from "~/components/shared/headers/HeaderDashboard";
-import Axios from "axios";
 import style from "./style.module.css";
-const DisplayUsers = () => {
-  const [users, setUser] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
-
-  useEffect(() => {
-    loadUsers();
-  }, []);
-
-  const loadUsers = async () => {
-    const result = await Axios.get("http://localhost:3001/users");
-    setUser(result.data);
+import DragFile from "./components/drop-file/DragFile";
+const FileManager = () => {
+  const onFileChange = (file) => {
+    console.log(file);
   };
-
-  const deleteUser = async (id) => {
-    await Axios.delete(`http://localhost:3001/users/${id}`);
-    loadUsers();
-  };
-
   return (
     <ContainerDefault title='Employees Manage'>
       <HeaderDashboard
@@ -31,7 +17,17 @@ const DisplayUsers = () => {
       <div>
         <h1>File Details</h1>
       </div>
+      <div className='container'>
+        <div className='row'>
+          <div className='col-12'>
+            <div className={style.box}>
+              <div className={style.header}>drag your file here !</div>
+              <DragFile onFileChange={(file) => onFileChange(file)} />
+            </div>
+          </div>
+        </div>
+      </div>
     </ContainerDefault>
   );
 };
-export default DisplayUsers;
+export default FileManager;
