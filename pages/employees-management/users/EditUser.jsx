@@ -4,6 +4,18 @@ import HeaderDashboard from "~/components/shared/headers/HeaderDashboard";
 import { useRouter } from "next/router";
 import Axios from "axios";
 import style from "../style.module.css";
+import {
+  collection,
+  addDoc,
+  getDocs,
+  docs,
+  getDoc,
+  doc,
+  updateDoc,
+} from "firebase/firestore";
+import { database } from "~/firebaseConfig";
+const employeeInstance = collection(database, "employee");
+
 const EditUser = () => {
   const router = useRouter();
   const { id } = router.query;
@@ -48,20 +60,49 @@ const EditUser = () => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    await Axios.put(`http://localhost:3001/users/${id}`, user);
+    const updateUser = doc(database, "employee", id);
+    await updateDoc(updateUser, user);
     router.push("/employees-management");
+
+    // await Axios.put(`http://localhost:3001/users/${id}`, user);
+    // router.push("/employees-management");
   };
 
+  // useEffect(() => {
+  //   const LoadUser = async () => {
+  //     try {
+  //       let employees = [];
+
+  //       getDocs(employeeInstance).then((data) => {
+  //         for (let i = 0; i < data.docs.length; i++) {
+  //           const item = data.docs[i];
+
+  //           setUser({ ...item.data(), id: item.id });
+  //           // console.log(item.id);
+  //           console.log(item.data());
+  //           // console.log(item.data());
+  //         }
+  //         setUser(employees);
+  //         // console.log(data);
+  //       });
+  //       // console.log(data);
+
+  //       // const data = await Axios.get(`http://localhost:3001/users/` + id);
+  //       // setUser(data.data);
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   };
+  //   LoadUser();
+  // }, []);
+
+  const getSingleUserData = async () => {
+    const singleNote = doc(database, "employee", id);
+    const data = await getDoc(singleNote);
+    setUser({ ...data.data(), id: data.id });
+  };
   useEffect(() => {
-    const LoadUser = async () => {
-      try {
-        const data = await Axios.get(`http://localhost:3001/users/` + id);
-        setUser(data.data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    LoadUser();
+    getSingleUserData();
   }, []);
   return (
     <>

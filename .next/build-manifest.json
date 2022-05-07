@@ -29,10 +29,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/employees-management.js"
     ],
-    "/employees-management/users/AddUser": [
+    "/employees-management/users/[id]": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/employees-management/users/AddUser.js"
+      "static/chunks/pages/employees-management/users/[id].js"
     ]
   },
   "ampFirstPages": []

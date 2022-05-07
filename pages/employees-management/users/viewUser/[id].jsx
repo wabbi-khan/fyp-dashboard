@@ -4,6 +4,18 @@ import HeaderDashboard from "~/components/shared/headers/HeaderDashboard";
 import { useRouter } from "next/router";
 import Axios from "axios";
 import style from "./style.module.css";
+import {
+  collection,
+  addDoc,
+  getDocs,
+  docs,
+  getDoc,
+  doc,
+  updateDoc,
+} from "firebase/firestore";
+import { database } from "~/firebaseConfig";
+const employeeInstance = collection(database, "employee");
+
 const ViewUser = () => {
   const router = useRouter();
   const { id } = router.query;
@@ -41,10 +53,10 @@ const ViewUser = () => {
     dob,
     doh,
   } = user;
-  const onInputChange = (e) => {
-    console.log(e.target.value);
-    setUser({ ...user, [e.target.name]: e.target.value });
-  };
+  // const onInputChange = (e) => {
+  //   console.log(e.target.value);
+  //   setUser({ ...user, [e.target.name]: e.target.value });
+  // };
 
   // const onSubmit = async (e) => {
   //   e.preventDefault();
@@ -52,17 +64,25 @@ const ViewUser = () => {
   //   router.push("/employees-management");
   // };
 
+  // useEffect(() => {
+  //   const LoadUser = async () => {
+  //     try {
+  //       // console.log(id);
+  //       const data = await Axios.get(`http://localhost:3001/users/` + id);
+  //       setUser(data.data);
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   };
+  //   LoadUser();
+  // }, []);
+  const getSingleUserData = async () => {
+    const singleNote = doc(database, "employee", id);
+    const data = await getDoc(singleNote);
+    setUser({ ...data.data(), id: data.id });
+  };
   useEffect(() => {
-    const LoadUser = async () => {
-      try {
-        // console.log(id);
-        const data = await Axios.get(`http://localhost:3001/users/` + id);
-        setUser(data.data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    LoadUser();
+    getSingleUserData();
   }, []);
   return (
     <>

@@ -4,11 +4,17 @@ import Link from "next/link";
 import HeaderDashboard from "~/components/shared/headers/HeaderDashboard";
 import Axios from "axios";
 import style from "./style.module.css";
-import { collection, addDoc, getDocs } from "firebase/firestore";
+import {
+  collection,
+  addDoc,
+  getDocs,
+  deleteDoc,
+  doc,
+} from "firebase/firestore";
 import { database } from "~/firebaseConfig";
 const employeeInstance = collection(database, "employee");
 
-const DisplayUsers = () => {
+const DisplayUsers = ({ ID }) => {
   const [users, setUser] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -23,7 +29,8 @@ const DisplayUsers = () => {
     getDocs(employeeInstance).then((data) => {
       for (let i = 0; i < data.docs.length; i++) {
         const item = data.docs[i];
-        employees.push(item.data());
+        employees.push({ ...item.data(), id: item.id });
+        console.log(item.data());
       }
       setUser(employees);
       // console.log(data);
@@ -34,7 +41,9 @@ const DisplayUsers = () => {
   };
 
   const deleteUser = async (id) => {
-    await Axios.delete(`http://localhost:3001/users/${id}`);
+    // await Axios.delete(`http://localhost:3001/users/${id}`);
+    const deleteUser = doc(database, "employee", id);
+    await deleteDoc(deleteUser);
     loadUsers();
   };
 
