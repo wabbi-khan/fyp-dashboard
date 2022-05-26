@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
-// import CardRecentOrders from "~/components/shared/cards/CardRecentOrders";
-// import CardSaleReport from "~/components/shared/cards/CardSaleReport";
-// import CardEarning from "~/components/shared/cards/CardEarning";
-// import CardStatics from "~/components/shared/cards/CardStatics";
+import CardRecentOrders from "~/components/shared/cards/CardRecentOrders";
+import CardSaleReport from "~/components/shared/cards/CardSaleReport";
+import CardEarning from "~/components/shared/cards/CardEarning";
+import CardStatics from "~/components/shared/cards/CardStatics";
 import ContainerDashboard from "~/components/layouts/ContainerDashboard";
 import { getDocs, collection } from "firebase/firestore";
 // import { useDispatch } from "react-redux";
 // import { toggleDrawerMenu } from "~/store/app/action";
-// import CardTopCountries from "~/components/shared/cards/CardTopCountries";
+import CardTopCountries from "~/components/shared/cards/CardTopCountries";
 import { database } from "~/firebaseConfig";
 const usersInstance = collection(database, "users");
 
@@ -30,7 +30,7 @@ const Index = () => {
       <div>
         <h1>Some Company Details On Dashboard</h1>
       </div>
-      {/* <section className='ps-dashboard' id='homepage'>
+      <section className='ps-dashboard' id='homepage'>
         <div className='ps-section__left'>
           <div className='row'>
             <div className='col-xl-8 col-12'>
@@ -46,7 +46,7 @@ const Index = () => {
           <CardStatics />
           <CardTopCountries />
         </div>
-      </section> */}
+      </section>
     </ContainerDashboard>
   );
 };
