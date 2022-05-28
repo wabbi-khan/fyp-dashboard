@@ -1,42 +1,72 @@
-import React, { useEffect } from "react";
+import React from "react";
 import ContainerDefault from "~/components/layouts/ContainerDefault";
-// import Pagination from "~/components/elements/basic/Pagination";
-// import TableCustomerItems from "~/components/shared/tables/TableCustomerItems";
-// import FormSearchSimple from "~/components/shared/forms/FormSearchSimple";
 import HeaderDashboard from "~/components/shared/headers/HeaderDashboard";
-// import { connect, useDispatch } from "react-redux";
-// import { toggleDrawerMenu } from "~/store/app/action";
+import {
+  Agenda,
+  Day,
+  Inject,
+  Month,
+  ScheduleComponent,
+  Week,
+  WorkWeek,
+} from "@syncfusion/ej2-react-schedule";
+import { addDoc, collection, onSnapshot, query } from "firebase/firestore";
+import { useEffect, useState } from "react";
+// import { database } from "./firebase.config";
+import { database } from "~/firebaseConfig";
+import moment from "moment";
+// import "./style.module.css";
 
 const CustomersPage = () => {
-  //   const dispatch = useDispatch();
-  //   useEffect(() => {
-  //     dispatch(toggleDrawerMenu(false));
-  //   }, []);
+  const [data, setData] = useState();
+
+  useEffect(() => {
+    const q = query(collection(database, "events"));
+    const unsub = onSnapshot(q, (doc) => {
+      const tempEvents = [];
+      doc.forEach((el) => {
+        console.log("CBM", el.data());
+
+        tempEvents.push({
+          ...el.data(),
+          EndTime: new Date(el.data().EndTime),
+          StartTime: new Date(el.data().StartTime),
+        });
+      });
+
+      setData(tempEvents);
+    });
+
+    return () => unsub();
+  }, []);
+
+  function createEvent(values) {
+    addDoc(collection(database, "events"), values);
+  }
   return (
     <ContainerDefault title='Meeting Scheduler'>
       <HeaderDashboard title='Meeting Scheduler' description='Meeting List' />
       <div>
         <h1>Meeting Details</h1>
       </div>
-      {/* <section className="ps-items-listing">
-                <div className="ps-section__header simple">
-                    <div className="ps-section__filter">
-                        <FormSearchSimple />
-                    </div>
-                    <div className="ps-section__actions">
-                        <a className="ps-btn success" href="#">
-                            <i className="icon icon-plus mr-2"></i>Add Customer
-                        </a>
-                    </div>
-                </div>
-                <div className="ps-section__content">
-                    <TableCustomerItems />
-                </div>
-                <div className="ps-section__footer">
-                    <p>Show 10 in 30 items.</p>
-                    <Pagination />
-                </div>
-            </section> */}
+      <div>
+        <ScheduleComponent
+          height='550px'
+          selectedDate={new Date(2018, 1, 15)}
+          eventSettings={{ dataSource: data }}
+          actionComplete={(args) => {
+            if (args.requestType === "eventCreated") {
+              createEvent({
+                ...args.data[0],
+                EndTime: moment(args.data[0].EndTime).format(),
+                StartTime: moment(args.data[0].StartTime).format(),
+              });
+            }
+          }}
+        >
+          <Inject services={[Day, Week, WorkWeek, Month, Agenda]} />
+        </ScheduleComponent>
+      </div>
     </ContainerDefault>
   );
 };

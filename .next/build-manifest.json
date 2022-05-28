@@ -33,6 +33,11 @@
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/file-management.js"
+    ],
+    "/meeting-scheduler": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/meeting-scheduler.js"
     ]
   },
   "ampFirstPages": []

@@ -13,6 +13,7 @@
         "start": "next start -p 3002"
     },
     "dependencies": {
+        "@syncfusion/ej2-react-schedule": "^19.4.55",
         "@zeit/next-sass": "^1.0.1",
         "antd": "^4.8.5",
         "apexcharts": "^3.22.2",
