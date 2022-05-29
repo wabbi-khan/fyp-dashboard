@@ -52,7 +52,7 @@ const CustomersPage = () => {
       <div>
         <ScheduleComponent
           height='550px'
-          selectedDate={new Date(2018, 1, 15)}
+          // selectedDate={new Date(2022, 1, 15)}
           eventSettings={{ dataSource: data }}
           actionComplete={(args) => {
             if (args.requestType === "eventCreated") {
