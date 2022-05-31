@@ -11,7 +11,7 @@ import CardTopCountries from "~/components/shared/cards/CardTopCountries";
 import { database } from "~/firebaseConfig";
 const usersInstance = collection(database, "users");
 import Link from "next/link";
-
+import style from "./style.module.css";
 const Index = () => {
   // const dispatch = useDispatch();
   const getAllUsers = async () => {
@@ -28,7 +28,61 @@ const Index = () => {
 
   return (
     <ContainerDashboard title='Dashboard'>
-      <div>
+      <div className='container'>
+        <div className='row'>
+          <div className='col-4'>
+            <Link href='/employees-management'>
+              <div className={style.img1}></div>
+            </Link>
+            <h2 className={style.text}>200</h2>
+            <h4 style={{ color: "red", marginLeft: "80px", cursor: "pointer" }}>
+              Employee Hired
+            </h4>
+          </div>
+          <div className='col-4'>
+            <Link href='/file-management'>
+              <div className={style.img2}></div>
+            </Link>
+            <h2 className={style.text}>100</h2>
+            <h4 style={{ color: "red", marginLeft: "80px", cursor: "pointer" }}>
+              Files are Stored
+            </h4>
+          </div>
+          <div className='col-4'>
+            <Link href='/meeting-scheduler'>
+              <div className={style.img3}></div>
+            </Link>
+            <h2 className={style.text}>5</h2>
+            <h4 style={{ color: "red", marginLeft: "50px", cursor: "pointer" }}>
+              Meetings are Scheduled
+            </h4>
+          </div>
+        </div>
+        <div className={style.box}>
+          <div className='row'>
+            <div className='col-4'>
+              <div className={style.box1}>
+                <div className={style.weather}></div>
+                <div className={style.date}></div>
+              </div>
+            </div>
+            <div className='col-8'>
+              <div className={style.card}>
+                <CardSaleReport />
+              </div>
+            </div>
+          </div>
+          <div className='row'>
+            <div className='col-8'>
+              <div className={style.team}></div>
+            </div>{" "}
+            <div className='col-4'>
+              <div className={style.storage}></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* <div>
         <h3>Team Members:</h3>
       </div>
       <ol>
@@ -41,7 +95,7 @@ const Index = () => {
         <li>
           <h4>Rushda khan (A18BSIT015)</h4>
         </li>
-      </ol>
+      </ol> */}
       {/* <div>
         <h3>Wahab khan (A18BSIT037)</h3>
       </div>
@@ -51,7 +105,7 @@ const Index = () => {
       <div>
         <h3>Rushda khan (A18BSIT015)</h3>
       </div> */}
-      <div className='container pt-4'>
+      {/* <div className='container pt-4'>
         <div className='row'>
           <div className='col-6'>
             <div class='card'>
@@ -107,7 +161,7 @@ const Index = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
       {/* <div>
         <h1>Some Company Details On Dashboard</h1>
       </div> */}
