@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
-import CardRecentOrders from "~/components/shared/cards/CardRecentOrders";
+// import CardRecentOrders from "~/components/shared/cards/CardRecentOrders";
 import CardSaleReport from "~/components/shared/cards/CardSaleReport";
-import CardEarning from "~/components/shared/cards/CardEarning";
-import CardStatics from "~/components/shared/cards/CardStatics";
+// import CardEarning from "~/components/shared/cards/CardEarning";
+// import CardStatics from "~/components/shared/cards/CardStatics";
 import ContainerDashboard from "~/components/layouts/ContainerDashboard";
 import { getDocs, collection } from "firebase/firestore";
 // import { useDispatch } from "react-redux";
 // import { toggleDrawerMenu } from "~/store/app/action";
-import CardTopCountries from "~/components/shared/cards/CardTopCountries";
+// import CardTopCountries from "~/components/shared/cards/CardTopCountries";
 import { database } from "~/firebaseConfig";
 const usersInstance = collection(database, "users");
 import Link from "next/link";
@@ -31,31 +31,40 @@ const Index = () => {
       <div className='container'>
         <div className='row'>
           <div className='col-4'>
-            <Link href='/employees-management'>
-              <div className={style.img1}></div>
-            </Link>
-            <h2 className={style.text}>200</h2>
-            <h4 style={{ color: "red", marginLeft: "80px", cursor: "pointer" }}>
-              Employee Hired
-            </h4>
+            <div className={style.img1}></div>
+            <div className={style.content}>
+              <h2 className={style.text}>200</h2>
+              <h4 style={{ color: "red", cursor: "pointer" }}>
+                Employee Hired
+              </h4>
+              <Link href='/employees-management'>
+                <button className={style.btn}>Click Me</button>
+              </Link>
+            </div>
           </div>
           <div className='col-4'>
-            <Link href='/file-management'>
-              <div className={style.img2}></div>
-            </Link>
-            <h2 className={style.text}>100</h2>
-            <h4 style={{ color: "red", marginLeft: "80px", cursor: "pointer" }}>
-              Files are Stored
-            </h4>
+            <div className={style.img2}></div>
+            <div className={style.content}>
+              <h2 className={style.text}>120</h2>
+              <h4 style={{ color: "red", cursor: "pointer" }}>
+                Files are Stored
+              </h4>
+              <Link href='/file-management'>
+                <button className={style.btn}>Click Me</button>
+              </Link>
+            </div>
           </div>
           <div className='col-4'>
-            <Link href='/meeting-scheduler'>
-              <div className={style.img3}></div>
-            </Link>
-            <h2 className={style.text}>5</h2>
-            <h4 style={{ color: "red", marginLeft: "50px", cursor: "pointer" }}>
-              Meetings are Scheduled
-            </h4>
+            <div className={style.img3}></div>
+            <div className={style.content}>
+              <h2 className={style.text}>5</h2>
+              <h4 style={{ color: "red", cursor: "pointer" }}>
+                Meetings Scheduled
+              </h4>
+              <Link href='/meeting-scheduler'>
+                <button className={style.btn}>Click Me</button>
+              </Link>
+            </div>
           </div>
         </div>
         <div className={style.box}>
