@@ -4,7 +4,8 @@
     height: 35vh;
     background-repeat: no-repeat;
     background-size: contain;
-    border: 1px orange solid;
+    /* border: 1px orange solid; */
+    box-shadow: 4px 5px grey;
     border-radius: 14px;
     cursor: pointer;
     /* box-shadow: 5px 5px; */
@@ -16,7 +17,8 @@
     height: 35vh;
     background-repeat: no-repeat;
     background-size: contain;
-    border: 1px orange solid;
+    /* border: 1px orange solid; */
+    box-shadow: 4px 5px grey;
     border-radius: 14px;
     cursor: pointer;
 }
@@ -27,7 +29,8 @@
     height: 35vh;
     background-repeat: no-repeat;
     background-size: contain;
-    border: 1px orange solid;
+    /* border: 1px orange solid; */
+    box-shadow: 4px 5px grey;
     border-radius: 14px;
     cursor: pointer;
 }

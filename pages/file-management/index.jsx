@@ -9,13 +9,13 @@ import {
   getDownloadURL,
   deleteObject,
 } from "firebase/storage";
+// import cloudicon from "~/public/img/cloudicon.png";
 import style from "./style.module.css";
 const index = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [fileUpload, setFileUpload] = useState(null);
   const [fileList, setFileList] = useState([]);
   const fileListRef = ref(storage, "file/");
-
   //Upload File
   const uploadFile = () => {
     if (fileUpload == null) return;
@@ -117,7 +117,10 @@ const index = () => {
                         {/* {JSON.stringify(item, 0, 1)} */}
                       </a>
                       <td>
-                        <button onClick={(e) => deleteFile(item.name)}>
+                        <button
+                          className={style.delete}
+                          onClick={(e) => deleteFile(item.name)}
+                        >
                           Delete
                         </button>
                       </td>
