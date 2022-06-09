@@ -3,8 +3,9 @@
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
   "/employees-management": "pages/employees-management.js",
-  "/404": "pages/404.js",
-  "/file-management": "pages/file-management.js",
   "/meeting-scheduler": "pages/meeting-scheduler.js",
-  "/": "pages/index.js"
+  "/employees-management/users/AddUser": "pages/employees-management/users/AddUser.js",
+  "/employees-management/users/[id]": "pages/employees-management/users/[id].js",
+  "/employees-management/users/viewUser/[id]": "pages/employees-management/users/viewUser/[id].js",
+  "/file-management": "pages/file-management.js"
 }

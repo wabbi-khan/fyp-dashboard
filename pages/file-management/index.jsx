@@ -10,12 +10,16 @@ import {
   deleteObject,
 } from "firebase/storage";
 // import cloudicon from "~/public/img/cloudicon.png";
+import Spinner from "~/components/spinner/index";
+
 import style from "./style.module.css";
 const index = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [fileUpload, setFileUpload] = useState(null);
   const [fileList, setFileList] = useState([]);
   const fileListRef = ref(storage, "file/");
+  const [loading, setLoading] = useState(false);
+
   //Upload File
   const uploadFile = () => {
     if (fileUpload == null) return;
@@ -54,6 +58,7 @@ const index = () => {
         // console.log(item.name);
         getDownloadURL(item).then((url) => {
           setFileList((prev) => [...prev, { url, name: item.name }]);
+          setLoading(true);
         });
       });
     });
@@ -97,36 +102,40 @@ const index = () => {
               </tr>
             </thead>
             <tbody>
-              {fileList
-                .filter((file) => {
-                  if (searchTerm == "") {
-                    return file;
-                  } else if (
-                    file.name.toLowerCase().includes(searchTerm.toLowerCase())
-                  ) {
-                    return file;
-                  }
-                })
-                .map((item, index) => {
-                  return (
-                    <tr>
-                      <td> {index + 1}</td>
-                      <a href={item.url} target='_blank'>
-                        <td>{item.name}</td>
+              {loading ? (
+                fileList
+                  .filter((file) => {
+                    if (searchTerm == "") {
+                      return file;
+                    } else if (
+                      file.name.toLowerCase().includes(searchTerm.toLowerCase())
+                    ) {
+                      return file;
+                    }
+                  })
+                  .map((item, index) => {
+                    return (
+                      <tr>
+                        <td> {index + 1}</td>
+                        <a href={item.url} target='_blank'>
+                          <td>{item.name}</td>
 
-                        {/* {JSON.stringify(item, 0, 1)} */}
-                      </a>
-                      <td>
-                        <button
-                          className={style.delete}
-                          onClick={(e) => deleteFile(item.name)}
-                        >
-                          Delete
-                        </button>
-                      </td>
-                    </tr>
-                  );
-                })}
+                          {/* {JSON.stringify(item, 0, 1)} */}
+                        </a>
+                        <td>
+                          <button
+                            className={style.delete}
+                            onClick={(e) => deleteFile(item.name)}
+                          >
+                            Delete
+                          </button>
+                        </td>
+                      </tr>
+                    );
+                  })
+              ) : (
+                <Spinner />
+              )}
             </tbody>
           </table>
         </div>

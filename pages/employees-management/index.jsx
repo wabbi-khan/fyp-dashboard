@@ -13,10 +13,12 @@ import {
 } from "firebase/firestore";
 import { database } from "~/firebaseConfig";
 const employeeInstance = collection(database, "employee");
+import Spinner from "~/components/spinner/index";
 
 const DisplayUsers = ({ ID }) => {
   const [users, setUser] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     loadUsers();
@@ -33,6 +35,8 @@ const DisplayUsers = ({ ID }) => {
         console.log(item.data());
       }
       setUser(employees);
+      setLoading(true);
+
       // console.log(data);
     });
     // setUser(result.data);
@@ -101,55 +105,63 @@ const DisplayUsers = ({ ID }) => {
             </tr>
           </thead>
           <tbody>
-            {users
-              .filter((user) => {
-                if (searchTerm == "") {
-                  return user;
-                } else if (
-                  user.cnicNo
-                    .toLowerCase()
-                    .includes(searchTerm.toLowerCase()) ||
-                  user.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                  user.phone.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                  user.email.toLowerCase().includes(searchTerm.toLowerCase())
-                ) {
-                  return user;
-                }
-              })
-              .map((user, index) => (
-                <tr>
-                  <th scope='row'> {index + 1} </th>
-                  <td> {user.name} </td>
-                  <td> {user.phone} </td>
-                  <td> {user.cnicNo} </td>
-                  <td> {user.email} </td>
-                  <td> {user.status} </td>
-                  <td>
-                    <Link
-                      href={`/employees-management/users/viewUser/` + user.id}
-                    >
-                      <button className='btn btn-primary mr-2'>View</button>
-                    </Link>
-                    {/* <Link
+            {loading ? (
+              users
+                .filter((user) => {
+                  if (searchTerm == "") {
+                    return user;
+                  } else if (
+                    user.cnicNo
+                      .toLowerCase()
+                      .includes(searchTerm.toLowerCase()) ||
+                    user.name
+                      .toLowerCase()
+                      .includes(searchTerm.toLowerCase()) ||
+                    user.phone
+                      .toLowerCase()
+                      .includes(searchTerm.toLowerCase()) ||
+                    user.email.toLowerCase().includes(searchTerm.toLowerCase())
+                  ) {
+                    return user;
+                  }
+                })
+                .map((user, index) => (
+                  <tr>
+                    <th scope='row'> {index + 1} </th>
+                    <td> {user.name} </td>
+                    <td> {user.phone} </td>
+                    <td> {user.cnicNo} </td>
+                    <td> {user.email} </td>
+                    <td> {user.status} </td>
+                    <td>
+                      <Link
+                        href={`/employees-management/users/viewUser/` + user.id}
+                      >
+                        <button className='btn btn-primary mr-2'>View</button>
+                      </Link>
+                      {/* <Link
                     href='/employees-management/users/EditUser/[id]'
                     as={`/employees-management/users/EditUser/${user?.id}`}
                   > */}
-                    <Link href={`/employees-management/users/` + user.id}>
-                      <button className='btn btn-outline-primary mr-2'>
-                        Edit
+                      <Link href={`/employees-management/users/` + user.id}>
+                        <button className='btn btn-outline-primary mr-2'>
+                          Edit
+                        </button>
+                      </Link>
+                      {/* <Link href='#'> */}
+                      <button
+                        className='btn btn-danger mr-2'
+                        onClick={() => deleteUser(user.id)}
+                      >
+                        Delete
                       </button>
-                    </Link>
-                    {/* <Link href='#'> */}
-                    <button
-                      className='btn btn-danger mr-2'
-                      onClick={() => deleteUser(user.id)}
-                    >
-                      Delete
-                    </button>
-                    {/* </Link> */}
-                  </td>
-                </tr>
-              ))}
+                      {/* </Link> */}
+                    </td>
+                  </tr>
+                ))
+            ) : (
+              <Spinner />
+            )}
           </tbody>
         </table>
       </div>
