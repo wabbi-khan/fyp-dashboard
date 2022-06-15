@@ -132,7 +132,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_shared_headers_HeaderMobile__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ~/components/shared/headers/HeaderMobile */ "./components/shared/headers/HeaderMobile.jsx");
 /* harmony import */ var _components_shared_drawers_DrawerMenu__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ~/components/shared/drawers/DrawerMenu */ "./components/shared/drawers/DrawerMenu.jsx");
 
-var _jsxFileName = "E:\\FYP\\admin-dashboard\\martfury-admin-react\\components\\layouts\\DefaultLayout.jsx";
+var _jsxFileName = "E:\\FYP\\admin-dashboard\\office-automation\\components\\layouts\\DefaultLayout.jsx";
 
 
 
@@ -202,7 +202,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/head */ "next/head");
 /* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_head__WEBPACK_IMPORTED_MODULE_2__);
 
-var _jsxFileName = "E:\\FYP\\admin-dashboard\\martfury-admin-react\\components\\layouts\\modules\\Head.jsx";
+var _jsxFileName = "E:\\FYP\\admin-dashboard\\office-automation\\components\\layouts\\modules\\Head.jsx";
 
 
 
@@ -327,7 +327,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _store_app_action__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ~/store/app/action */ "./store/app/action.js");
 /* harmony import */ var _components_shared_menus_MenuSidebar__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ~/components/shared/menus/MenuSidebar */ "./components/shared/menus/MenuSidebar.jsx");
 
-var _jsxFileName = "E:\\FYP\\admin-dashboard\\martfury-admin-react\\components\\shared\\drawers\\DrawerMenu.jsx";
+var _jsxFileName = "E:\\FYP\\admin-dashboard\\office-automation\\components\\shared\\drawers\\DrawerMenu.jsx";
 
 
 
@@ -411,7 +411,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_redux__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _store_app_action__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ~/store/app/action */ "./store/app/action.js");
 
-var _jsxFileName = "E:\\FYP\\admin-dashboard\\martfury-admin-react\\components\\shared\\headers\\HeaderMobile.jsx";
+var _jsxFileName = "E:\\FYP\\admin-dashboard\\office-automation\\components\\shared\\headers\\HeaderMobile.jsx";
 
 
 
@@ -507,7 +507,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! next/router */ "next/router");
 /* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_3__);
 
-var _jsxFileName = "E:\\FYP\\admin-dashboard\\martfury-admin-react\\components\\shared\\menus\\MenuSidebar.jsx";
+var _jsxFileName = "E:\\FYP\\admin-dashboard\\office-automation\\components\\shared\\menus\\MenuSidebar.jsx";
 
 
 
@@ -3497,7 +3497,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var antd_dist_antd_min_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! antd/dist/antd.min.css */ "./node_modules/antd/dist/antd.min.css");
 /* harmony import */ var antd_dist_antd_min_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(antd_dist_antd_min_css__WEBPACK_IMPORTED_MODULE_5__);
 
-var _jsxFileName = "E:\\FYP\\admin-dashboard\\martfury-admin-react\\pages\\_app.jsx";
+var _jsxFileName = "E:\\FYP\\admin-dashboard\\office-automation\\pages\\_app.jsx";
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 

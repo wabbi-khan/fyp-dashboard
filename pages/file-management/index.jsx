@@ -9,7 +9,6 @@ import {
   getDownloadURL,
   deleteObject,
 } from "firebase/storage";
-// import cloudicon from "~/public/img/cloudicon.png";
 import Spinner from "~/components/spinner/index";
 
 import style from "./style.module.css";
@@ -31,6 +30,7 @@ const index = () => {
         setFileList((prev) => [...prev, url]);
       });
       alert("File Uploaded");
+      window.location.reload();
     });
   };
   // Delete file
@@ -39,7 +39,8 @@ const index = () => {
     // Delete the file
     deleteObject(desertRef)
       .then(() => {
-        // File deleted successfully
+        window.location.reload();
+
         console.log("woww file delete");
       })
       .catch((error) => {
@@ -49,14 +50,10 @@ const index = () => {
   };
 
   useEffect(() => {
-    //   const unsub = onSnapshot(doc(db, "cities", "SF"), (doc) => {
-    //     console.log("Current data: ", doc.data());
-    // });
     listAll(fileListRef).then((res) => {
-      // console.log(res);
       res.items.forEach((item) => {
-        // console.log(item.name);
         getDownloadURL(item).then((url) => {
+          console.log(item);
           setFileList((prev) => [...prev, { url, name: item.name }]);
           setLoading(true);
         });
@@ -119,6 +116,7 @@ const index = () => {
                         <td> {index + 1}</td>
                         <a href={item.url} target='_blank'>
                           <td>{item.name}</td>
+                          {/* <td>{console.log(item.url)}</td> */}
 
                           {/* {JSON.stringify(item, 0, 1)} */}
                         </a>
