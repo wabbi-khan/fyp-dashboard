@@ -10,7 +10,7 @@ import {
   Week,
   WorkWeek,
 } from "@syncfusion/ej2-react-schedule";
-import { addDoc, collection, onSnapshot, query } from "firebase/firestore";
+import { addDoc, collection, onSnapshot, query, doc } from "firebase/firestore";
 import { useEffect, useState } from "react";
 // import { database } from "./firebase.config";
 import { database } from "~/firebaseConfig";
@@ -43,6 +43,13 @@ const CustomersPage = () => {
   function createEvent(values) {
     addDoc(collection(database, "events"), values);
   }
+
+  // const deleteMeeting = async (values) => {
+  //   // const deleteMeeting = query(collection(database, "events", id));
+  //   await deleteDoc(collection(database, "events"), values);
+  //   // await deleteDoc(deleteMeeting);
+  //   // loadUsers();
+  // };
   return (
     <ContainerDefault title='Meeting Scheduler'>
       <HeaderDashboard title='Meeting Scheduler' description='Meeting List' />
@@ -63,6 +70,9 @@ const CustomersPage = () => {
               });
             }
           }}
+          // destroyed={(e) => {
+          //   deleteMeeting(e.id);
+          // }}
         >
           <Inject services={[Day, Week, WorkWeek, Month, Agenda]} />
         </ScheduleComponent>
