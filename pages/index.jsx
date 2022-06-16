@@ -7,10 +7,7 @@ const usersInstance = collection(database, "users");
 import Link from "next/link";
 import style from "./style.module.css";
 import { storage } from "~/firebaseConfig";
-import {
-  ref,
-  list,
-} from "firebase/storage";
+import { ref, list } from "firebase/storage";
 const Index = () => {
   const employeeInstance = collection(database, "employee");
   const allMeeting = query(collection(database, "events"));
@@ -21,6 +18,7 @@ const Index = () => {
   const [countUsers, setCountUsers] = useState([]);
   const [allMeetings, setAllMeetings] = useState([]);
   const [allfiles, setAllFiles] = useState([]);
+  const [Time, setTime] = useState([]);
 
   //? count all employess
 
@@ -34,7 +32,7 @@ const Index = () => {
   list(files).then((snap) => {
     const size = snap.items.length;
     setAllFiles(size); // will return the collection size
-    console.log(size);
+    // console.log(size);
   });
 
   //? count all meetings
@@ -46,14 +44,23 @@ const Index = () => {
   const getAllUsers = async () => {
     getDocs(usersInstance).then((data) => {
       data.docs.map((item) => {
-        console.log(item.data());
+        // console.log(item.data());
       });
     });
   };
+
+  //? show time
+  const time = () => {
+    var today = new Date(),
+      time = today.getHours() + ":" + today.getMinutes();
+    setTime(time);
+    console.log(time);
+  };
+
   useEffect(() => {
     getAllUsers();
+    time();
   }, []);
-
   return (
     <ContainerDashboard title='Dashboard'>
       <div className='container'>
@@ -100,7 +107,20 @@ const Index = () => {
             <div className='col-4'>
               <div className={style.box1}>
                 <div className={style.weather}></div>
-                <div className={style.date}></div>
+                <div>
+                  <div className={style.date}></div>
+                  <p
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      marginTop: "-60px",
+                      // marginLeft: "130px",
+                      fontSize: "20px",
+                    }}
+                  >
+                    {Time}
+                  </p>
+                </div>
               </div>
             </div>
             <div className='col-8'>
