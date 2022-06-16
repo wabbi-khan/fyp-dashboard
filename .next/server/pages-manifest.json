@@ -3,6 +3,6 @@
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
   "/": "pages/index.js",
-  "/meeting-scheduler": "pages/meeting-scheduler.js",
-  "/404": "pages/404.js"
+  "/file-management": "pages/file-management.js",
+  "/meeting-scheduler": "pages/meeting-scheduler.js"
 }

@@ -6,23 +6,27 @@ import { database } from "~/firebaseConfig";
 const usersInstance = collection(database, "users");
 import Link from "next/link";
 import style from "./style.module.css";
-// import { storage } from "~/firebaseConfig";
-// import {
-//   ref,
-//   uploadBytes,
-//   listAll,
-//   getDownloadURL,
-//   deleteObject,
-//   getBytes,
-//   listResult,
-// } from "firebase/storage";
+import { storage } from "~/firebaseConfig";
+import {
+  ref,
+  uploadBytes,
+  listAll,
+  getDownloadURL,
+  deleteObject,
+  getBytes,
+  listResult,
+  list,
+} from "firebase/storage";
 const Index = () => {
   const employeeInstance = collection(database, "employee");
   const allMeeting = query(collection(database, "events"));
+  const files = ref(storage, "file/");
+
   // const fileListRef = ref(storage, "file/");
 
   const [countUsers, setCountUsers] = useState([]);
   const [allMeetings, setAllMeetings] = useState([]);
+  const [allfiles, setAllFiles] = useState([]);
 
   //? count all employess
 
@@ -30,6 +34,13 @@ const Index = () => {
     const size = snap.size; // will return the collection size
     setCountUsers(size);
     // console.log(size);
+  });
+  //? count all file
+
+  list(files).then((snap) => {
+    const size = snap.items.length;
+    setAllFiles(size); // will return the collection size
+    console.log(size);
   });
 
   //? count all meetings
@@ -49,12 +60,6 @@ const Index = () => {
     getAllUsers();
   }, []);
 
-  //? count all file
-
-  // getItems(fileListRef).then((snap) => {
-  //   const size = getItems().size(); // will return the collection size
-  //   console.log(size);
-  // });
   return (
     <ContainerDashboard title='Dashboard'>
       <div className='container'>
@@ -74,7 +79,7 @@ const Index = () => {
           <div className='col-4'>
             <div className={style.img2}></div>
             <div className={style.content}>
-              <h2 className={style.text}>120</h2>
+              <h2 className={style.text}> {allfiles} </h2>
               <h4 style={{ color: "red", cursor: "pointer" }}>
                 Files are Stored
               </h4>
