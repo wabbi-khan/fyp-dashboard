@@ -9,12 +9,6 @@ import style from "./style.module.css";
 import { storage } from "~/firebaseConfig";
 import {
   ref,
-  uploadBytes,
-  listAll,
-  getDownloadURL,
-  deleteObject,
-  getBytes,
-  listResult,
   list,
 } from "firebase/storage";
 const Index = () => {

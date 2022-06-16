@@ -25,6 +25,7 @@ const StyleSheets = () => (
       href='/fonts/font-awesome/css/font-awesome.min.css'
     />
     <link rel='stylesheet' type='text/css' href='/css/bootstrap.min.css' />
+    <link rel='icon' type='image/x-icon' href='/img/favicon.ico' />
     //?=========================
     {/* <link
       href='//cdn.syncfusion.com/ej2/20.1.57/ej2-base/styles/material.css'

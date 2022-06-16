@@ -3010,7 +3010,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_2__);
 
-var _jsxFileName = "E:\\FYP\\admin-dashboard\\office-automation\\pages\\404.jsx";
+var _jsxFileName = "E:\\FYP\\office-autonmatin-dashboard\\office-automation\\pages\\404.jsx";
 
 
 
