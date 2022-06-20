@@ -12,12 +12,10 @@ import {
 } from "@syncfusion/ej2-react-schedule";
 import { addDoc, collection, onSnapshot, query, doc } from "firebase/firestore";
 import { useEffect, useState } from "react";
-// import { database } from "./firebase.config";
 import { database } from "~/firebaseConfig";
 import moment from "moment";
-// import "./style.module.css";
 
-const CustomersPage = () => {
+const Meeting = () => {
   const [data, setData] = useState();
 
   useEffect(() => {
@@ -44,12 +42,6 @@ const CustomersPage = () => {
     addDoc(collection(database, "events"), values);
   }
 
-  // const deleteMeeting = async (values) => {
-  //   // const deleteMeeting = query(collection(database, "events", id));
-  //   await deleteDoc(collection(database, "events"), values);
-  //   // await deleteDoc(deleteMeeting);
-  //   // loadUsers();
-  // };
   return (
     <ContainerDefault title='Meeting Scheduler'>
       <HeaderDashboard title='Meeting Scheduler' description='Meeting List' />
@@ -70,9 +62,6 @@ const CustomersPage = () => {
               });
             }
           }}
-          // destroyed={(e) => {
-          //   deleteMeeting(e.id);
-          // }}
         >
           <Inject services={[Day, Week, WorkWeek, Month, Agenda]} />
         </ScheduleComponent>
@@ -80,5 +69,5 @@ const CustomersPage = () => {
     </ContainerDefault>
   );
 };
-export default CustomersPage;
+export default Meeting;
 // export default connect((state) => state.app)(CustomersPage);

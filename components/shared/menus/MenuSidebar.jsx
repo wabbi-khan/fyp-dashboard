@@ -45,7 +45,7 @@ const MenuSidebar = () => {
           className={router.pathname === item.url ? "active" : ""}
         >
           <Link href={item.url}>
-            <a style={{ paddingBottom: "15px" }}>
+            <a style={{ paddingBottom: "15px", fontSize: "18px" }}>
               <i className={item.icon}></i>
               {item.text}
             </a>

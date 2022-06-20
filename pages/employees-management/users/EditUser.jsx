@@ -63,39 +63,7 @@ const EditUser = () => {
     const updateUser = doc(database, "employee", id);
     await updateDoc(updateUser, user);
     router.push("/employees-management");
-
-    // await Axios.put(`http://localhost:3001/users/${id}`, user);
-    // router.push("/employees-management");
   };
-
-  // useEffect(() => {
-  //   const LoadUser = async () => {
-  //     try {
-  //       let employees = [];
-
-  //       getDocs(employeeInstance).then((data) => {
-  //         for (let i = 0; i < data.docs.length; i++) {
-  //           const item = data.docs[i];
-
-  //           setUser({ ...item.data(), id: item.id });
-  //           // console.log(item.id);
-  //           console.log(item.data());
-  //           // console.log(item.data());
-  //         }
-  //         setUser(employees);
-  //         // console.log(data);
-  //       });
-  //       // console.log(data);
-
-  //       // const data = await Axios.get(`http://localhost:3001/users/` + id);
-  //       // setUser(data.data);
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   };
-  //   LoadUser();
-  // }, []);
-
   const getSingleUserData = async () => {
     const singleNote = doc(database, "employee", id);
     const data = await getDoc(singleNote);
@@ -125,6 +93,7 @@ const EditUser = () => {
                 onChange={(e) => onInputChange(e)}
                 required
                 placeholder='Employee Full Name'
+                style={{ color: "black", fontSize: "20px" }}
               />
             </div>
             <div class='form-group col-md-6'>
@@ -137,6 +106,7 @@ const EditUser = () => {
                 onChange={(e) => onInputChange(e)}
                 required
                 placeholder='Employee User Name'
+                style={{ color: "black", fontSize: "20px" }}
               />
             </div>
           </div>
@@ -151,6 +121,7 @@ const EditUser = () => {
                 onChange={(e) => onInputChange(e)}
                 required
                 placeholder='Employee Mobile No'
+                style={{ color: "black", fontSize: "20px" }}
               />
             </div>
             <div class='form-group col-md-6'>
@@ -163,6 +134,7 @@ const EditUser = () => {
                 onChange={(e) => onInputChange(e)}
                 required
                 placeholder='Employee Cnic No'
+                style={{ color: "black", fontSize: "20px" }}
               />
             </div>
           </div>
@@ -177,6 +149,7 @@ const EditUser = () => {
                 onChange={(e) => onInputChange(e)}
                 required
                 placeholder='Employee Email address'
+                style={{ color: "black", fontSize: "20px" }}
               />
             </div>
             <div class='form-group col-md-6'>
@@ -196,6 +169,7 @@ const EditUser = () => {
                 required
                 name='country'
                 value={country}
+                style={{ color: "black", fontSize: "20px" }}
               >
                 <option>Choose...</option>
                 <option>Pakistan</option>
@@ -214,6 +188,7 @@ const EditUser = () => {
                 value={dob}
                 onChange={(e) => onInputChange(e)}
                 required
+                style={{ color: "black", fontSize: "20px" }}
               />
             </div>
             <div class='form-group col-md-6'>
@@ -225,6 +200,7 @@ const EditUser = () => {
                 value={doh}
                 onChange={(e) => onInputChange(e)}
                 required
+                style={{ color: "black", fontSize: "20px" }}
               />
             </div>
           </div>
@@ -239,6 +215,7 @@ const EditUser = () => {
               value={address}
               onChange={(e) => onInputChange(e)}
               required
+              style={{ color: "black", fontSize: "20px" }}
             />
           </div>
 
@@ -254,6 +231,7 @@ const EditUser = () => {
                 onChange={(e) => onInputChange(e)}
                 required
                 placeholder='Employee City'
+                style={{ color: "black", fontSize: "20px" }}
               />
             </div>
             <div class='form-group col-md-3'>
@@ -273,6 +251,7 @@ const EditUser = () => {
                 required
                 name='province'
                 value={province}
+                style={{ color: "black", fontSize: "20px" }}
               >
                 <option>Choose...</option>
                 <option>Sindh</option>
@@ -292,6 +271,7 @@ const EditUser = () => {
                 onChange={(e) => onInputChange(e)}
                 required
                 placeholder='Employee Zip code'
+                style={{ color: "black", fontSize: "20px" }}
               />
             </div>
           </div>
@@ -308,6 +288,7 @@ const EditUser = () => {
                 onChange={(e) => onInputChange(e)}
                 required
                 placeholder='Employee Department'
+                style={{ color: "black", fontSize: "20px" }}
               />
             </div>
             <div class='form-group col-md-4'>
@@ -327,6 +308,7 @@ const EditUser = () => {
                 required
                 name='status'
                 value={status}
+                style={{ color: "black", fontSize: "20px" }}
               >
                 <option>Choose...</option>
                 <option>Hire</option>
@@ -345,6 +327,7 @@ const EditUser = () => {
                 onChange={(e) => onInputChange(e)}
                 required
                 placeholder='Employee Salary'
+                style={{ color: "black", fontSize: "20px" }}
               />
             </div>
           </div>

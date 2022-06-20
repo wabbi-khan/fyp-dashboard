@@ -7,9 +7,9 @@ const HeaderDashboard = ({
 }) => {
   return (
     <header className='header--dashboard'>
-      <div className='header__left'>
-        <h3>{title}</h3>
-        <p>{description}</p>
+      <div>
+        <h2>{title}</h2>
+        <p style={{ fontSize: "18px", color: "black" }}>{description}</p>
       </div>
       {/* <div className='header__center'>
         <FormHeaderSearch />

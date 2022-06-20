@@ -77,6 +77,7 @@ const AddUser = () => {
                 onChange={(e) => onInputChange(e)}
                 required
                 placeholder='Employee Full Name'
+                style={{ color: "black", fontSize: "20px" }}
               />
             </div>
             <div class='form-group col-md-6'>

@@ -72,7 +72,7 @@ const CardSaleReport = () => {
   return (
     <div className='ps-card ps-card--sale-report'>
       <div className='ps-card__header'>
-        <h4>Summary Of This Month</h4>
+        <h3>Summary Of This Month</h3>
       </div>
 
       <div className='ps-card__content'>

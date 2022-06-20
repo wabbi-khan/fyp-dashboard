@@ -115,7 +115,9 @@ const index = () => {
                       <tr>
                         <td> {index + 1}</td>
                         <a href={item.url} target='_blank'>
-                          <td>{item.name}</td>
+                          <td style={{ color: "black", fontSize: "18px" }}>
+                            {item.name}
+                          </td>
                           {/* <td>{console.log(item.url)}</td> */}
 
                           {/* {JSON.stringify(item, 0, 1)} */}

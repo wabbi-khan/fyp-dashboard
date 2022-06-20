@@ -69,9 +69,9 @@ const Index = () => {
             <div className={style.img1}></div>
             <div className={style.content}>
               <h2 className={style.text}> {countUsers} </h2>
-              <h4 style={{ color: "red", cursor: "pointer" }}>
+              <h3 style={{ color: "red", cursor: "pointer" }}>
                 Employee Hired
-              </h4>
+              </h3>
               <Link href='/employees-management'>
                 <button className={style.btn}>Click Me</button>
               </Link>
@@ -81,9 +81,9 @@ const Index = () => {
             <div className={style.img2}></div>
             <div className={style.content}>
               <h2 className={style.text}> {allfiles} </h2>
-              <h4 style={{ color: "red", cursor: "pointer" }}>
+              <h3 style={{ color: "red", cursor: "pointer" }}>
                 Files are Stored
-              </h4>
+              </h3>
               <Link href='/file-management'>
                 <button className={style.btn}>Click Me</button>
               </Link>
@@ -93,9 +93,9 @@ const Index = () => {
             <div className={style.img3}></div>
             <div className={style.content}>
               <h2 className={style.text}>{allMeetings}</h2>
-              <h4 style={{ color: "red", cursor: "pointer" }}>
+              <h3 style={{ color: "red", cursor: "pointer" }}>
                 Meetings Scheduled
-              </h4>
+              </h3>
               <Link href='/meeting-scheduler'>
                 <button className={style.btn}>Click Me</button>
               </Link>

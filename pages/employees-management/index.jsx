@@ -94,13 +94,13 @@ const DisplayUsers = ({ ID }) => {
 
         <table className='table border shadow mt-4'>
           <thead className='thead-dark '>
-            <tr>
+            <tr style={{ fontSize: "18px" }}>
               <th scope='col'>#</th>
               <th scope='col'>Name</th>
               <th scope='col'>Mobile No</th>
               <th scope='col'>CNIC</th>
               <th scope='col'>Email</th>
-              <th scope='col'>Status</th>
+              {/* <th scope='col'>Status</th> */}
               <th scope='col'>Action</th>
             </tr>
           </thead>
@@ -126,25 +126,33 @@ const DisplayUsers = ({ ID }) => {
                   }
                 })
                 .map((user, index) => (
-                  <tr>
+                  <tr style={{ fontSize: "18px" }}>
                     <th scope='row'> {index + 1} </th>
                     <td> {user.name} </td>
                     <td> {user.phone} </td>
                     <td> {user.cnicNo} </td>
                     <td> {user.email} </td>
-                    <td> {user.status} </td>
+                    {/* <td> {user.status} </td> */}
                     <td>
                       <Link
                         href={`/employees-management/users/viewUser/` + user.id}
                       >
-                        <button className='btn btn-primary mr-2'>View</button>
+                        <button
+                          className='btn btn-primary mr-2'
+                          style={{ fontSize: "15px" }}
+                        >
+                          View
+                        </button>
                       </Link>
                       {/* <Link
                     href='/employees-management/users/EditUser/[id]'
                     as={`/employees-management/users/EditUser/${user?.id}`}
                   > */}
                       <Link href={`/employees-management/users/` + user.id}>
-                        <button className='btn btn-outline-primary mr-2'>
+                        <button
+                          className='btn btn-outline-primary mr-2'
+                          style={{ fontSize: "15px" }}
+                        >
                           Edit
                         </button>
                       </Link>
@@ -152,6 +160,7 @@ const DisplayUsers = ({ ID }) => {
                       <button
                         className='btn btn-danger mr-2'
                         onClick={() => deleteUser(user.id)}
+                        style={{ fontSize: "15px" }}
                       >
                         Delete
                       </button>
