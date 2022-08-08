@@ -50,7 +50,7 @@ const Meeting = () => {
       </div>
       <div>
         <ScheduleComponent
-          height='550px'
+          height='500px'
           // selectedDate={new Date(2022, 1, 15)}
           eventSettings={{ dataSource: data }}
           actionComplete={(args) => {
@@ -63,7 +63,10 @@ const Meeting = () => {
             }
           }}
         >
-          <Inject services={[Day, Week, WorkWeek, Month, Agenda]} />
+          <Inject
+            services={[Day, Week, WorkWeek, Month, Agenda]}
+            style={{ fontSize: "20px" }}
+          />
         </ScheduleComponent>
       </div>
     </ContainerDefault>

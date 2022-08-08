@@ -15,6 +15,7 @@ import {
 } from "firebase/firestore";
 import { database } from "~/firebaseConfig";
 const employeeInstance = collection(database, "employee");
+import Style from "./style.module.css";
 
 const EditUser = () => {
   const router = useRouter();
@@ -79,12 +80,12 @@ const EditUser = () => {
           title='Employees Management'
           description='Employees Listing '
         />
-        <h3>Editing {user.name} Profile</h3>
+        <h1>Editing {user.name} Profile</h1>
         {/* <FormikForm /> */}
-        <form onSubmit={(e) => onSubmit(e)}>
+        <form onSubmit={(e) => onSubmit(e)} className='pt-4'>
           <div class='form-row'>
             <div class='form-group col-md-6'>
-              <label>Full Name</label>
+              <label className={Style.label}>Full Name</label>
               <input
                 type='text'
                 class='form-control'
@@ -97,7 +98,7 @@ const EditUser = () => {
               />
             </div>
             <div class='form-group col-md-6'>
-              <label>User Name</label>
+              <label className={Style.label}>User Name</label>
               <input
                 type='text'
                 class='form-control'
@@ -112,7 +113,7 @@ const EditUser = () => {
           </div>
           <div class='form-row'>
             <div class='form-group col-md-6'>
-              <label>Mobile No</label>
+              <label className={Style.label}>Mobile No</label>
               <input
                 type='tel'
                 class='form-control'
@@ -125,7 +126,7 @@ const EditUser = () => {
               />
             </div>
             <div class='form-group col-md-6'>
-              <label>CNIC No</label>
+              <label className={Style.label}>CNIC No</label>
               <input
                 type='tel'
                 class='form-control'
@@ -140,7 +141,7 @@ const EditUser = () => {
           </div>
           <div class='form-row'>
             <div class='form-group col-md-6'>
-              <label>Email</label>
+              <label className={Style.label}>Email</label>
               <input
                 type='email'
                 class='form-control'
@@ -153,7 +154,7 @@ const EditUser = () => {
               />
             </div>
             <div class='form-group col-md-6'>
-              <label>Country</label>
+              <label className={Style.label}>Country</label>
               {/* <input
                 type='text'
                 class='form-control'
@@ -180,7 +181,7 @@ const EditUser = () => {
           </div>
           <div class='form-row'>
             <div class='form-group col-md-6'>
-              <label>Date of birth</label>
+              <label className={Style.label}>Date of birth</label>
               <input
                 type='date'
                 class='form-control'
@@ -192,7 +193,7 @@ const EditUser = () => {
               />
             </div>
             <div class='form-group col-md-6'>
-              <label>Date of hiring</label>
+              <label className={Style.label}>Date of hiring</label>
               <input
                 type='date'
                 class='form-control'
@@ -205,7 +206,9 @@ const EditUser = () => {
             </div>
           </div>
           <div class='form-group'>
-            <label for='inputAddress'>Address</label>
+            <label for='inputAddress' className={Style.label}>
+              Address
+            </label>
             <input
               type='text'
               class='form-control'
@@ -221,7 +224,9 @@ const EditUser = () => {
 
           <div class='form-row'>
             <div class='form-group col-md-5'>
-              <label for='inputCity'>City</label>
+              <label for='inputCity' className={Style.label}>
+                City
+              </label>
               <input
                 type='text'
                 class='form-control'
@@ -235,7 +240,9 @@ const EditUser = () => {
               />
             </div>
             <div class='form-group col-md-3'>
-              <label for='inputState'>Province</label>
+              <label for='inputState' className={Style.label}>
+                Province
+              </label>
               {/* <input
                 type='text'
                 class='form-control'
@@ -261,7 +268,9 @@ const EditUser = () => {
               </select>
             </div>
             <div class='form-group col-md-4'>
-              <label for='inputZip'>Zip</label>
+              <label for='inputZip' className={Style.label}>
+                Zip
+              </label>
               <input
                 type='tel'
                 class='form-control'
@@ -278,7 +287,9 @@ const EditUser = () => {
 
           <div class='form-row'>
             <div class='form-group col-md-4'>
-              <label for='inputCity'>Department</label>
+              <label for='inputCity' className={Style.label}>
+                Department
+              </label>
               <input
                 type='text'
                 class='form-control'
@@ -292,7 +303,9 @@ const EditUser = () => {
               />
             </div>
             <div class='form-group col-md-4'>
-              <label for='inputState'>Status</label>
+              <label for='inputState' className={Style.label}>
+                Status
+              </label>
               {/* <input
                 type='text'
                 class='form-control'
@@ -317,7 +330,9 @@ const EditUser = () => {
               </select>
             </div>
             <div class='form-group col-md-4'>
-              <label for='inputZip'>Salary</label>
+              <label for='inputZip' className={Style.label}>
+                Salary
+              </label>
               <input
                 type='tel'
                 class='form-control'
@@ -332,7 +347,11 @@ const EditUser = () => {
             </div>
           </div>
 
-          <button type='submit' className={style.btn}>
+          <button
+            type='submit'
+            className={style.btn}
+            style={{ fontSize: "20px" }}
+          >
             Edit Employee
           </button>
         </form>

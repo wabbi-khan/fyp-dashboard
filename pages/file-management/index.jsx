@@ -65,7 +65,7 @@ const index = () => {
     <>
       <ContainerDefault title='File Manage'>
         <HeaderDashboard title='File Management' description='File Listing ' />
-
+        <h1>File Management</h1>
         <div className='p-4'>
           <input
             type='file'
@@ -74,7 +74,11 @@ const index = () => {
               setFileUpload(e.target.files[0]);
             }}
           />
-          <button onClick={uploadFile} className={style.btn}>
+          <button
+            onClick={uploadFile}
+            className={style.btn}
+            style={{ fontSize: "20px" }}
+          >
             Upload File
           </button>
         </div>
