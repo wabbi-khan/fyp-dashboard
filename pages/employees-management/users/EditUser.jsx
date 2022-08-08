@@ -36,6 +36,7 @@ const EditUser = () => {
     salary: "",
     dob: "",
     doh: "",
+    task: "",
   });
   const {
     name,
@@ -53,6 +54,7 @@ const EditUser = () => {
     salary,
     dob,
     doh,
+    task,
   } = user;
   const onInputChange = (e) => {
     console.log(e.target.value);
@@ -286,7 +288,7 @@ const EditUser = () => {
           </div>
 
           <div class='form-row'>
-            <div class='form-group col-md-4'>
+            <div class='form-group col-md-3'>
               <label for='inputCity' className={Style.label}>
                 Department
               </label>
@@ -302,7 +304,23 @@ const EditUser = () => {
                 style={{ color: "black", fontSize: "20px" }}
               />
             </div>
-            <div class='form-group col-md-4'>
+            <div class='form-group col-md-3'>
+              <label for='inputCity' className={Style.label}>
+                Task
+              </label>
+              <input
+                type='text'
+                class='form-control'
+                id='inputCity'
+                name='task'
+                value={task}
+                onChange={(e) => onInputChange(e)}
+                required
+                placeholder='Task Assign'
+                style={{ color: "black", fontSize: "20px" }}
+              />
+            </div>
+            <div class='form-group col-md-3'>
               <label for='inputState' className={Style.label}>
                 Status
               </label>
@@ -329,7 +347,7 @@ const EditUser = () => {
                 <option>Pending</option>
               </select>
             </div>
-            <div class='form-group col-md-4'>
+            <div class='form-group col-md-3'>
               <label for='inputZip' className={Style.label}>
                 Salary
               </label>

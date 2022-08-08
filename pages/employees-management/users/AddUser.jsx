@@ -27,6 +27,7 @@ const AddUser = () => {
     salary: "",
     dob: "",
     doh: "",
+    task: "",
   });
   const {
     name,
@@ -44,6 +45,7 @@ const AddUser = () => {
     salary,
     dob,
     doh,
+    task,
   } = user;
   const onInputChange = (e) => {
     // console.log(e.target.value);
@@ -248,7 +250,7 @@ const AddUser = () => {
             </div>
           </div>
           <div class='form-row'>
-            <div class='form-group col-md-4'>
+            <div class='form-group col-md-3'>
               <label for='inputCity'>Department</label>
               <input
                 type='text'
@@ -261,7 +263,20 @@ const AddUser = () => {
                 placeholder='Employee Department'
               />
             </div>
-            <div class='form-group col-md-4'>
+            <div class='form-group col-md-3'>
+              <label for='inputCity'>Task</label>
+              <input
+                type='text'
+                class='form-control'
+                id='inputCity'
+                name='task'
+                value={task}
+                onChange={(e) => onInputChange(e)}
+                required
+                placeholder='Task Assign'
+              />
+            </div>
+            <div class='form-group col-md-3'>
               <label for='inputState'>Status</label>
 
               <select
@@ -277,7 +292,7 @@ const AddUser = () => {
                 <option>Pending</option>
               </select>
             </div>
-            <div class='form-group col-md-4'>
+            <div class='form-group col-md-3'>
               <label for='inputZip'>Salary</label>
               <input
                 type='tel'
