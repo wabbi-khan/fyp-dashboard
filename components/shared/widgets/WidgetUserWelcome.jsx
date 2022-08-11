@@ -4,7 +4,7 @@ const WidgetUserWelcome = () => {
   return (
     <div className='ps-block--user-wellcome'>
       {/* <div className='ps-block__left'> */}
-      <img src='/img/logo.png' alt='company-img' width={250} height={50} />
+      <img src='/img/logo.png' alt='company-img' width={250} height={100} />
       {/* </div> */}
       {/* <div className='ps-block__right'>
         <p>

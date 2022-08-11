@@ -13,7 +13,6 @@ const Index = () => {
   const allMeeting = query(collection(database, "events"));
   const files = ref(storage, "file/");
 
-  // const fileListRef = ref(storage, "file/");
 
   const [countUsers, setCountUsers] = useState([]);
   const [allMeetings, setAllMeetings] = useState([]);

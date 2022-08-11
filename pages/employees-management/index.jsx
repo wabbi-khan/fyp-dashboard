@@ -19,15 +19,11 @@ const DisplayUsers = ({ ID }) => {
   const [users, setUser] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [loading, setLoading] = useState(false);
-
   useEffect(() => {
     loadUsers();
   }, []);
-
   const loadUsers = async () => {
-    // const result = await Axios.get("http://localhost:3001/users");
     let employees = [];
-
     getDocs(employeeInstance).then((data) => {
       for (let i = 0; i < data.docs.length; i++) {
         const item = data.docs[i];
@@ -36,16 +32,9 @@ const DisplayUsers = ({ ID }) => {
       }
       setUser(employees);
       setLoading(true);
-
-      // console.log(data);
     });
-    // setUser(result.data);
-
-    // console.log(result);
   };
-
   const deleteUser = async (id) => {
-    // await Axios.delete(`http://localhost:3001/users/${id}`);
     const deleteUser = doc(database, "employee", id);
     await deleteDoc(deleteUser);
     loadUsers();
